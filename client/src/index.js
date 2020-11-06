@@ -1,14 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import HomePage from "./HomePage";
-import IngredientPage from "./IngredientPage";
-import RecipePage from "./RecipePage";
-import RecipeDetailPage from "./RecipeDetailPage";
+import HomePage from './HomePage';
+import IngredientPage from './IngredientPage';
+import RecipePage from './RecipePage';
+import RecipeDetailPage from './RecipeDetailPage';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -30,7 +30,7 @@ ReactDOM.render(
     </Router>
     <App />
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
