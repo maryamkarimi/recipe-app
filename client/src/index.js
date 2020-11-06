@@ -5,10 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import HomePage from './HomePage';
-import IngredientPage from './IngredientPage';
-import RecipePage from './RecipePage';
-import RecipeDetailPage from './RecipeDetailPage';
+import HomePage from './pages/HomePage';
+import IngredientPage from './pages/IngredientPage';
+import RecipePage from './pages/RecipePage';
+import RecipeDetailPage from './pages/RecipeDetailPage';
 
 ReactDOM.render(
   <React.StrictMode>
