@@ -8,16 +8,35 @@
     "@testing-library/user-event": "^12.1.10",
     "antd": "^4.8.0",
     "react": "^17.0.1",
+    "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.0",
     "web-vitals": "^0.2.4"
   },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "babel-loader": "^8.1.0",
+    "babel-polyfill": "^6.26.0",
+    "css-loader": "^5.0.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.5.0",
+    "less": "^3.12.2",
+    "less-loader": "^7.0.2",
+    "nodemon": "^2.0.6",
+    "react-hot-loader": "^4.13.0",
+    "source-map-loader": "^1.1.2",
+    "style-loader": "^2.0.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "webpack --mode development",
+    "watch": "nodemon",
+    "dev": "webpack-dev-server"
   },
   "eslintConfig": {
     "extends": [

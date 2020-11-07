@@ -1,0 +1,10 @@
+{
+  "verbose": true,
+  "ignore": [ "node_modules/*" ],
+  "watch": [
+    "./src/*",
+    "./src/*/**"
+  ],
+  "exec": "npm run build",
+  "ext": "js,jsx,css,less"
+}
