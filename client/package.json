@@ -23,6 +23,8 @@
     "css-loader": "^5.0.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.0",
+    "less": "^3.12.2",
+    "less-loader": "^7.0.2",
     "nodemon": "^2.0.6",
     "react-hot-loader": "^4.13.0",
     "source-map-loader": "^1.1.2",

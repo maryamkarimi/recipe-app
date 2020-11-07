@@ -1,7 +1,8 @@
 import React from "react";
+import '../demo.less';
 
 const HomePage = () => {
-  return <div>This is the homepage</div>;
+  return <div className={"demo-less"}>This is the homepage</div>;
 };
 
 export default HomePage;

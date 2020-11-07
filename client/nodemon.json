@@ -6,5 +6,5 @@
     "./src/*/**"
   ],
   "exec": "npm run build",
-  "ext": "js,jsx"
+  "ext": "js,jsx,css,less"
 }
