@@ -28,7 +28,6 @@ const HomePage = () => {
         </Col>
         <Col span={16} offset={4}>
           <SelectionCard
-            className={'cardWrapper'}
             selectionTitle='Search By Recipe'
             coverImage={
               <div className={'iconsWrapper'}>
