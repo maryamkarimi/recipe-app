@@ -1,3 +1,5 @@
+import 'antd/dist/antd.css';
+import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -28,7 +30,7 @@ ReactDOM.render(
         </Route>
       </Switch>
     </Router>
-    <App />
+    {/* <App /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
