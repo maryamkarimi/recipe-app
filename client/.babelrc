@@ -4,6 +4,13 @@
     "@babel/preset-react"
   ],
   "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": true
+      }
+    ],
     "react-hot-loader/babel",
     "@babel/plugin-proposal-class-properties"
   ]
