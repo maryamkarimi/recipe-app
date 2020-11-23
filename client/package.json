@@ -22,6 +22,12 @@
     "babel-plugin-import": "^1.13.1",
     "babel-polyfill": "^6.26.0",
     "css-loader": "^5.0.1",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.0",
     "less": "^3.12.2",
@@ -38,7 +44,8 @@
   "scripts": {
     "build": "webpack --mode development",
     "watch": "nodemon",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "lint:eslint": "eslint \"./src/**/*.jsx\" \"./src/**/*.js\""
   },
   "eslintConfig": {
     "extends": [
