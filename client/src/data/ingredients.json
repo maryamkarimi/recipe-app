@@ -1,33 +1,5 @@
 [
   {
-    "name": "5 spice powder",
-    "id": 1002002
-  },
-  {
-    "name": "acorn squash",
-    "id": 11482
-  },
-  {
-    "name": "adobo sauce",
-    "id": 6979
-  },
-  {
-    "name": "agave nectar",
-    "id": 19912
-  },
-  {
-    "name": "ahi tuna",
-    "id": 15117
-  },
-  {
-    "name": "alfredo pasta sauce",
-    "id": 93606
-  },
-  {
-    "name": "almond extract",
-    "id": 1002050
-  },
-  {
     "name": "almond flour",
     "id": 93740
   },
@@ -40,40 +12,12 @@
     "id": 12061
   },
   {
-    "name": "amaretto",
-    "id": 10014534
-  },
-  {
-    "name": "ancho chiles",
-    "id": 10211962
-  },
-  {
     "name": "anchovies",
     "id": 15001
   },
   {
-    "name": "andouille sausage",
-    "id": 7064
-  },
-  {
-    "name": "angel food cake mix",
-    "id": 18087
-  },
-  {
-    "name": "angel hair pasta",
-    "id": 10020420
-  },
-  {
-    "name": "angostura bitters",
-    "id": 93653
-  },
-  {
     "name": "apple",
     "id": 9003
-  },
-  {
-    "name": "apple butter spread",
-    "id": 19294
   },
   {
     "name": "apple cider",
@@ -88,24 +32,8 @@
     "id": 1042035
   },
   {
-    "name": "apricot preserves",
-    "id": 19719
-  },
-  {
     "name": "apricots",
     "id": 9021
-  },
-  {
-    "name": "arborio rice",
-    "id": 10020052
-  },
-  {
-    "name": "arrowroot powder",
-    "id": 20003
-  },
-  {
-    "name": "artichoke heart quarters",
-    "id": 93828
   },
   {
     "name": "artichokes",
@@ -114,14 +42,6 @@
   {
     "name": "arugula",
     "id": 11959
-  },
-  {
-    "name": "asafoetida",
-    "id": 1032035
-  },
-  {
-    "name": "asafoetida powder",
-    "id": 0
   },
   {
     "name": "asiago cheese",
@@ -162,10 +82,6 @@
   {
     "name": "baby spinach leaves",
     "id": 11457
-  },
-  {
-    "name": "baby-back ribs",
-    "id": 10010204
   },
   {
     "name": "baby-back ribs",
