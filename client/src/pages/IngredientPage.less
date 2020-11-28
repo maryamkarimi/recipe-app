@@ -1,0 +1,66 @@
+@import '../styles/ant-theme-vars';
+
+.search-by-ingredient {
+  .content {
+    padding-top: 62px;
+    min-height: 100vh;
+  }
+
+  .header {
+    background-color: #222;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+  }
+
+  .header-app-name {
+    color: white;
+    font-size: 25px;
+    padding-right: 20px;
+  }
+
+  .header a {
+    font-size: 15px;
+    color: hsla(0, 0%, 100%, .5);
+    padding-right: 20px;
+  }
+
+  .ant-layout-header {
+    padding: 0 20px;
+  }
+
+  .iconWrapper {
+    margin: 0 10px -5px;
+  }
+
+  .ant-badge-count {
+    background-color: @primary-color;
+  }
+
+  .footer {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    height: 90px;
+    background-color: white;
+    z-index: 1;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-weight: bold;
+  }
+
+  .footer button {
+    margin: 0 5px 0 5px;
+  }
+
+  .footer-ingredient-count {
+    padding-left: 6px;
+  }
+}
