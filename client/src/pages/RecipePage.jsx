@@ -39,8 +39,37 @@ const mapRows = (recipeArr) => {
   return rowsToDisplay;
 }
 
-const RecipePage = (ingredients) => {
-  return <div>This is the recipe selection page</div>;
+const RecipePage = () => {
+  const [recipes, setRecipes] = useState(pageArray(recipeData, 1, PAGE_SIZE));
+  const [rows, setRows] = useState(mapRows(recipes));
+
+  return (
+    <>
+      <Row align='middle' gutter={[32, 24]} justify='center'>
+        <Col span={12}>
+          {/* TODO - Wire search functionality to API */}
+          <Input size='large' placeholder='Search for recipes' allowClear />
+        </Col>
+        {rows}
+      </Row>
+      <Row align='middle' gutter={[32, 24]} justify='center'>
+        <Col>
+          <Pagination
+            defaultCurrent={1}
+            total={recipeData.length}
+            pageSize={PAGE_SIZE}
+            onChange={
+              (page, pageSize) => {
+                const nextRecipeArr = pageArray(recipeData, page, pageSize);
+                setRecipes(nextRecipeArr);
+                setRows(mapRows(nextRecipeArr));;
+              }
+            }
+          />
+        </Col>
+      </Row>
+    </>
+  );
 };
 
 export default RecipePage;
