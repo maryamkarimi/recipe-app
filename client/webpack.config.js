@@ -21,7 +21,7 @@ module.exports = {
                 loader: "babel-loader",
                 options: {
                     plugins: [
-                        ['import', { libraryName: 'antD', style: true }]
+                        ['import', { libraryName: 'antd', style: true }]
                     ]
                 }
             },
