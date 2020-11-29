@@ -18,11 +18,12 @@ import DownIcon from '@material-ui/icons/ArrowDownward';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.primary,
   },
 }));
 
@@ -407,7 +408,9 @@ const RecipeDetailPage = () => {
   return (
     <div>
       <Grid container spacing={3}>
-        <Grid item xs = {1}></Grid>
+        <Grid item xs = {1}>
+      
+        </Grid>
         <Grid item xs ={10}>
           <Paper className={classes.paper}>
             <h1>{data.title}</h1>
@@ -416,7 +419,10 @@ const RecipeDetailPage = () => {
         <Grid item xs = {1}></Grid>
       </Grid>
       <Grid container spacing={3}>
-      <Grid item xs = {1}></Grid>
+      <Grid item xs = {1}>
+
+
+      </Grid>
         <Grid item xs = {2}>
         <Paper className={classes.paper}>
           <h3>This dish goes well with:</h3>
@@ -424,8 +430,6 @@ const RecipeDetailPage = () => {
           <li key={i}>
           {wine}
         </li>))}
-
-          {data.winePairing.pairingText}<br></br>
           {data.winePairing.productMatches.map((wine, i)=>( 
           <a href={wine.link}><img src={wine.imageUrl}></img></a>
         ))}
