@@ -1,0 +1,1198 @@
+[
+  {
+    "category_name": "Baking",
+    "category_id": 1,
+    "ingredients": [
+      {
+        "name": "almond flour",
+        "id": 93740
+      },
+      {
+        "name": "baking powder",
+        "id": 18371
+      },
+      {
+        "name": "baking soda",
+        "id": 18372
+      },
+      {
+        "name": "cocoa powder",
+        "id": 19165
+      },
+      {
+        "name": "flour",
+        "id": 20081
+      },
+      {
+        "name": "graham crackers",
+        "id": 18617
+      },
+      {
+        "name": "instant yeast",
+        "id": 10118375
+      },
+      {
+        "name": "oat flour",
+        "id": 20132
+      },
+      {
+        "name": "oats",
+        "id": 8120
+      },
+      {
+        "name": "peanut butter",
+        "id": 16098
+      },
+      {
+        "name": "powdered sugar",
+        "id": 19336
+      },
+      {
+        "name": "raisins",
+        "id": 9299
+      },
+      {
+        "name": "raspberry jam",
+        "id": 10719297
+      },
+      {
+        "name": "semi sweet chocolate chips",
+        "id": 10019903
+      },
+      {
+        "name": "steel cut oats",
+        "id": 93695
+      },
+      {
+        "name": "white chocolate",
+        "id": 19087
+      },
+      {
+        "name": "white chocolate chips",
+        "id": 10019087
+      },
+      {
+        "name": "whole wheat flour",
+        "id": 20080
+      }
+    ]
+  },
+  {
+    "category_name": "Bread",
+    "category_id": 2,
+    "ingredients": [
+      {
+        "name": "baguette",
+        "id": 18033
+      },
+      {
+        "name": "english muffin",
+        "id": 18439
+      },
+      {
+        "name": "flour tortillas",
+        "id": 10218364
+      },
+      {
+        "name": "french bread",
+        "id": 18029
+      },
+      {
+        "name": "hamburger buns",
+        "id": 18350
+      },
+      {
+        "name": "italian bread",
+        "id": 10028033
+      },
+      {
+        "name": "pita",
+        "id": 18413
+      },
+      {
+        "name": "rye bread",
+        "id": 18060
+      },
+      {
+        "name": "sandwich bun",
+        "id": 18353
+      },
+      {
+        "name": "sourdough bread",
+        "id": 10118029
+      },
+      {
+        "name": "tortilla",
+        "id": 18364
+      },
+      {
+        "name": "white bread",
+        "id": 18069
+      },
+      {
+        "name": "wraps",
+        "id": 10018364
+      }
+    ]
+  },
+  {
+    "category_name": "Cheese",
+    "category_id": 3,
+    "ingredients": [
+      {
+        "name": "asiago cheese",
+        "id": 1001033
+      },
+      {
+        "name": "cheddar",
+        "id": 1009
+      },
+      {
+        "name": "cottage cheese",
+        "id": 1012
+      },
+      {
+        "name": "cream cheese",
+        "id": 1017
+      },
+      {
+        "name": "feta cheese",
+        "id": 1019
+      },
+      {
+        "name": "goat cheese",
+        "id": 1159
+      },
+      {
+        "name": "gouda cheese",
+        "id": 1022
+      },
+      {
+        "name": "monterey jack cheese",
+        "id": 1001025
+      },
+      {
+        "name": "parmigiano reggiano",
+        "id": 1033
+      },
+      {
+        "name": "processed american cheese",
+        "id": 1253
+      },
+      {
+        "name": "provolone cheese",
+        "id": 1035
+      },
+      {
+        "name": "shredded mozzarella",
+        "id": 1001026
+      },
+      {
+        "name": "swiss cheese",
+        "id": 1040
+      }
+    ]
+  },
+  {
+    "category_name": "Condiments",
+    "category_id": 4,
+    "ingredients": [
+      {
+        "name": "balsamic glaze",
+        "id": 98998
+      },
+      {
+        "name": "bbq sauce",
+        "id": 6150
+      },
+      {
+        "name": "brown sugar",
+        "id": 19334
+      },
+      {
+        "name": "caesar dressing",
+        "id": 43015
+      },
+      {
+        "name": "caramel sauce",
+        "id": 19364
+      },
+      {
+        "name": "chicken broth",
+        "id": 6194
+      },
+      {
+        "name": "chicken stock",
+        "id": 6172
+      },
+      {
+        "name": "chile garlic sauce",
+        "id": 93749
+      },
+      {
+        "name": "chili paste",
+        "id": 6973
+      },
+      {
+        "name": "chili sauce",
+        "id": 6972
+      },
+      {
+        "name": "dijon mustard",
+        "id": 1002046
+      },
+      {
+        "name": "extra virgin olive oil",
+        "id": 1034053
+      },
+      {
+        "name": "fat free mayo",
+        "id": 42193
+      },
+      {
+        "name": "frank's redhot sauce",
+        "id": 98878
+      },
+      {
+        "name": "fudge",
+        "id": 19100
+      },
+      {
+        "name": "gravy",
+        "id": 6997
+      },
+      {
+        "name": "hoisin sauce",
+        "id": 6175
+      },
+      {
+        "name": "hot sauce",
+        "id": 6168
+      },
+      {
+        "name": "hummus",
+        "id": 16158
+      },
+      {
+        "name": "ketchup",
+        "id": 11935
+      },
+      {
+        "name": "lemon juice",
+        "id": 9152
+      },
+      {
+        "name": "maple syrup",
+        "id": 19911
+      },
+      {
+        "name": "margarine",
+        "id": 4073
+      },
+      {
+        "name": "marinara sauce",
+        "id": 10111549
+      },
+      {
+        "name": "mayonnaise",
+        "id": 4025
+      },
+      {
+        "name": "mustard",
+        "id": 2046
+      },
+      {
+        "name": "oyster sauce",
+        "id": 6176
+      },
+      {
+        "name": "pasta sauce",
+        "id": 10011549
+      },
+      {
+        "name": "pesto",
+        "id": 93698
+      },
+      {
+        "name": "ranch dressing",
+        "id": 4639
+      },
+      {
+        "name": "salad dressing",
+        "id": 4114
+      },
+      {
+        "name": "soy sauce",
+        "id": 16124
+      },
+      {
+        "name": "sriracha sauce",
+        "id": 1016168
+      },
+      {
+        "name": "sugar",
+        "id": 19335
+      },
+      {
+        "name": "sweet chilli sauce",
+        "id": 98962
+      },
+      {
+        "name": "taco seasoning mix",
+        "id": 2073
+      },
+      {
+        "name": "tahini",
+        "id": 12698
+      },
+      {
+        "name": "teriyaki sauce",
+        "id": 6112
+      },
+      {
+        "name": "thai red curry paste",
+        "id": 93605
+      },
+      {
+        "name": "tomato paste",
+        "id": 11887
+      },
+      {
+        "name": "tomato puree",
+        "id": 11547
+      },
+      {
+        "name": "tomato sauce",
+        "id": 11549
+      },
+      {
+        "name": "vanilla extract",
+        "id": 2050
+      },
+      {
+        "name": "vegetable broth",
+        "id": 6615
+      },
+      {
+        "name": "worcestershire sauce",
+        "id": 6971
+      }
+    ]
+  },
+  {
+    "category_name": "Dairy",
+    "category_id": 5,
+    "ingredients": [
+      {
+        "name": "almond milk",
+        "id": 93607
+      },
+      {
+        "name": "butter",
+        "id": 1001
+      },
+      {
+        "name": "cheese",
+        "id": 1041009
+      },
+      {
+        "name": "chocolate milk",
+        "id": 1102
+      },
+      {
+        "name": "cream",
+        "id": 1053
+      },
+      {
+        "name": "egg whites",
+        "id": 1124
+      },
+      {
+        "name": "egg yolk",
+        "id": 1125
+      },
+      {
+        "name": "greek yogurt",
+        "id": 1256
+      },
+      {
+        "name": "half n half",
+        "id": 1049
+      },
+      {
+        "name": "milk",
+        "id": 1077
+      },
+      {
+        "name": "plain greek yogurt",
+        "id": 1001256
+      },
+      {
+        "name": "plain nonfat yogurt",
+        "id": 1118
+      },
+      {
+        "name": "salted butter",
+        "id": 1001001
+      },
+      {
+        "name": "shortening",
+        "id": 4615
+      },
+      {
+        "name": "sour cream",
+        "id": 1056
+      },
+      {
+        "name": "soy milk",
+        "id": 16223
+      },
+      {
+        "name": "whipped cream",
+        "id": 1054
+      },
+      {
+        "name": "whipping cream",
+        "id": 1001053
+      },
+      {
+        "name": "yogurt",
+        "id": 1116
+      }
+    ]
+  },
+  {
+    "category_name": "Fruits",
+    "category_id": 6,
+    "ingredients": [
+      {
+        "name": "apple",
+        "id": 9003
+      },
+      {
+        "name": "apricots",
+        "id": 9021
+      },
+      {
+        "name": "asian pear",
+        "id": 9252
+      },
+      {
+        "name": "banana",
+        "id": 9040
+      },
+      {
+        "name": "blueberries",
+        "id": 9050
+      },
+      {
+        "name": "berries",
+        "id": 1009054
+      },
+      {
+        "name": "blackberries",
+        "id": 9042
+      },
+      {
+        "name": "cantaloupe",
+        "id": 9181
+      },
+      {
+        "name": "cherry",
+        "id": 9070
+      },
+      {
+        "name": "cranberries",
+        "id": 9078
+      },
+      {
+        "name": "granny smith apples",
+        "id": 1089003
+      },
+      {
+        "name": "grape tomatoes",
+        "id": 10111529
+      },
+      {
+        "name": "mango",
+        "id": 9176
+      },
+      {
+        "name": "peach",
+        "id": 9236
+      },
+      {
+        "name": "pineapple",
+        "id": 9266
+      },
+      {
+        "name": "plum",
+        "id": 9279
+      },
+      {
+        "name": "prunes",
+        "id": 9291
+      },
+      {
+        "name": "raspberries",
+        "id": 9302
+      },
+      {
+        "name": "strawberries",
+        "id": 9316
+      }
+    ]
+  },
+  {
+    "category_name": "Herbs",
+    "category_id": 7,
+    "ingredients": [
+      {
+        "name": "chili peppers",
+        "id": 11962
+      },
+      {
+        "name": "cilantro",
+        "id": 11165
+      },
+      {
+        "name": "dried thyme",
+        "id": 2042
+      },
+      {
+        "name": "oregano",
+        "id": 2027
+      },
+      {
+        "name": "parsley",
+        "id": 11297
+      },
+      {
+        "name": "rosemary",
+        "id": 2036
+      }
+    ]
+  },
+  {
+    "category_name": "Liquor",
+    "category_id": 8,
+    "ingredients": [
+      {
+        "name": "champagne",
+        "id": 10043155
+      },
+      {
+        "name": "gin",
+        "id": 10514037
+      },
+      {
+        "name": "red wine",
+        "id": 14096
+      },
+      {
+        "name": "sparkling wine",
+        "id": 43155
+      },
+      {
+        "name": "tequila",
+        "id": 10814037
+      },
+      {
+        "name": "vodka",
+        "id": 14051
+      },
+      {
+        "name": "whiskey",
+        "id": 14052
+      },
+      {
+        "name": "wine",
+        "id": 14084
+      }
+    ]
+  },
+  {
+    "category_name": "Meats",
+    "category_id": 9,
+    "ingredients": [
+      {
+        "name": "bacon",
+        "id": 10123
+      },
+      {
+        "name": "beef",
+        "id": 23572
+      },
+      {
+        "name": "chicken breasts",
+        "id": 5062
+      },
+      {
+        "name": "chicken drumsticks",
+        "id": 5066
+      },
+      {
+        "name": "chicken legs",
+        "id": 5075
+      },
+      {
+        "name": "chicken pieces",
+        "id": 1005006
+      },
+      {
+        "name": "chicken tenders",
+        "id": 1015062
+      },
+      {
+        "name": "chicken thighs",
+        "id": 5091
+      },
+      {
+        "name": "chicken wings",
+        "id": 5100
+      },
+      {
+        "name": "chorizo sausage",
+        "id": 7019
+      },
+      {
+        "name": "ground beef",
+        "id": 10023572
+      },
+      {
+        "name": "ground chicken",
+        "id": 5332
+      },
+      {
+        "name": "ground lamb",
+        "id": 17224
+      },
+      {
+        "name": "ground pork",
+        "id": 10219
+      },
+      {
+        "name": "ground pork sausage",
+        "id": 7063
+      },
+      {
+        "name": "ham",
+        "id": 10151
+      },
+      {
+        "name": "italian sausages",
+        "id": 7036
+      },
+      {
+        "name": "lamb",
+        "id": 10017224
+      },
+      {
+        "name": "pepperoni",
+        "id": 7057
+      },
+      {
+        "name": "pork",
+        "id": 10010219
+      },
+      {
+        "name": "prosciutto",
+        "id": 10010123
+      },
+      {
+        "name": "salami",
+        "id": 7071
+      },
+      {
+        "name": "salmon fillet",
+        "id": 15076
+      },
+      {
+        "name": "sausage",
+        "id": 1017063
+      },
+      {
+        "name": "sirloin steak",
+        "id": 23625
+      },
+      {
+        "name": "smoked salmon",
+        "id": 15077
+      },
+      {
+        "name": "smoked sausage",
+        "id": 7916
+      },
+      {
+        "name": "steaks",
+        "id": 23232
+      },
+      {
+        "name": "top round steak",
+        "id": 23636
+      },
+      {
+        "name": "turkey",
+        "id": 5165
+      },
+      {
+        "name": "turkey kielbasa",
+        "id": 7955
+      },
+      {
+        "name": "unsmoked back bacon",
+        "id": 10130
+      },
+      {
+        "name": "vegetarian bacon",
+        "id": 16542
+      },
+      {
+        "name": "whole chicken",
+        "id": 5006
+      }
+    ]
+  },
+  {
+    "category_name": "Nuts",
+    "category_id": 10,
+    "ingredients": [
+      {
+        "name": "almonds",
+        "id": 12061
+      },
+      {
+        "name": "peanuts",
+        "id": 16091
+      },
+      {
+        "name": "pistachios",
+        "id": 12151
+      },
+      {
+        "name": "walnuts",
+        "id": 12155
+      }
+    ]
+  },
+  {
+    "category_name": "Oil, Vinegar",
+    "category_id": 11,
+    "ingredients": [
+      {
+        "name": "avocado oil",
+        "id": 4581
+      },
+      {
+        "name": "balsamic vinegar",
+        "id": 2069
+      },
+      {
+        "name": "coconut oil",
+        "id": 4047
+      },
+      {
+        "name": "oil",
+        "id": 4582
+      },
+      {
+        "name": "olive oil",
+        "id": 4053
+      },
+      {
+        "name": "rice vinegar",
+        "id": 1022053
+      },
+      {
+        "name": "sesame oil",
+        "id": 4058
+      },
+      {
+        "name": "sunflower oil",
+        "id": 4584
+      },
+      {
+        "name": "vegetable oil",
+        "id": 4513
+      },
+      {
+        "name": "vinaigrette",
+        "id": 4135
+      },
+      {
+        "name": "vinegar",
+        "id": 2053
+      },
+      {
+        "name": "white balsamic vinegar",
+        "id": 1012069
+      },
+      {
+        "name": "white wine vinegar",
+        "id": 1002068
+      },
+      {
+        "name": "wine vinegar",
+        "id": 2068
+      }
+    ]
+  },
+  {
+    "category_name": "Pasta/Grains",
+    "category_id": 12,
+    "ingredients": [
+      {
+        "name": "basmati rice",
+        "id": 10020444
+      },
+      {
+        "name": "brown rice",
+        "id": 20040
+      },
+      {
+        "name": "elbow macaroni",
+        "id": 10120499
+      },
+      {
+        "name": "fettuccine",
+        "id": 10020409
+      },
+      {
+        "name": "gnocchi",
+        "id": 98853
+      },
+      {
+        "name": "jasmine rice",
+        "id": 10120444
+      },
+      {
+        "name": "lasagna noodles",
+        "id": 10620420
+      },
+      {
+        "name": "linguine",
+        "id": 10720420
+      },
+      {
+        "name": "orzo",
+        "id": 10920420
+      },
+      {
+        "name": "pasta",
+        "id": 20420
+      },
+      {
+        "name": "penne",
+        "id": 11120420
+      },
+      {
+        "name": "quinoa",
+        "id": 20035
+      },
+      {
+        "name": "rice",
+        "id": 20444
+      },
+      {
+        "name": "rice noodles",
+        "id": 20133
+      },
+      {
+        "name": "short pasta",
+        "id": 20499
+      },
+      {
+        "name": "spaghetti",
+        "id": 11420420
+      }
+    ]
+  },
+  {
+    "category_name": "Snacks",
+    "category_id": 13,
+    "ingredients": [
+      {
+        "name": "chocolate",
+        "id": 19081
+      },
+      {
+        "name": "dark chocolate",
+        "id": 19904
+      },
+      {
+        "name": "dark chocolate chips",
+        "id": 10019071
+      },
+      {
+        "name": "m&m candies",
+        "id": 19157
+      },
+      {
+        "name": "nutella",
+        "id": 19125
+      },
+      {
+        "name": "oreo cookies",
+        "id": 10018166
+      }
+    ]
+  },
+  {
+    "category_name": "Seafood",
+    "category_id": 14,
+    "ingredients": [
+      {
+        "name": "canned tuna",
+        "id": 10115121
+      },
+      {
+        "name": "cod",
+        "id": 15015
+      },
+      {
+        "name": "halibut fillet",
+        "id": 15036
+      },
+      {
+        "name": "tilapia fillets",
+        "id": 15261
+      },
+      {
+        "name": "tuna",
+        "id": 10015121
+      },
+      {
+        "name": "fish",
+        "id": 10115261
+      },
+      {
+        "name": "oysters",
+        "id": 15167
+      }
+    ]
+  },
+  {
+    "category_name": "Spices/Seasoning",
+    "category_id": 15,
+    "ingredients": [
+      {
+        "name": "cajun seasoning",
+        "id": 1032028
+      },
+      {
+        "name": "chili powder",
+        "id": 2009
+      },
+      {
+        "name": "garlic powder",
+        "id": 1022020
+      },
+      {
+        "name": "garlic powder",
+        "id": 2020
+      },
+      {
+        "name": "garlic salt",
+        "id": 1062047
+      },
+      {
+        "name": "granulated garlic",
+        "id": 1002020
+      },
+      {
+        "name": "grill seasoning",
+        "id": 1022034
+      },
+      {
+        "name": "ground chipotle chile pepper",
+        "id": 1052009
+      },
+      {
+        "name": "ground cinnamon",
+        "id": 1012010
+      },
+      {
+        "name": "ground cinnamon",
+        "id": 2010
+      },
+      {
+        "name": "ground cloves",
+        "id": 2011
+      },
+      {
+        "name": "ground coriander seeds",
+        "id": 1002013
+      },
+      {
+        "name": "ground cumin",
+        "id": 1002014
+      },
+      {
+        "name": "ground flaxseed",
+        "id": 12220
+      },
+      {
+        "name": "ground ginger",
+        "id": 2021
+      },
+      {
+        "name": "italian seasoning",
+        "id": 1022027
+      },
+      {
+        "name": "onion powder",
+        "id": 2026
+      },
+      {
+        "name": "paprika",
+        "id": 2028
+      }
+    ]
+  },
+  {
+    "category_name": "Vegetables",
+    "category_id": 16,
+    "ingredients": [
+      {
+        "name": "artichokes",
+        "id": 11007
+      },
+      {
+        "name": "arugula",
+        "id": 11959
+      },
+      {
+        "name": "asparagus spears",
+        "id": 11011
+      },
+      {
+        "name": "avocado",
+        "id": 9037
+      },
+      {
+        "name": "beans",
+        "id": 16069
+      },
+      {
+        "name": "bell pepper",
+        "id": 10211821
+      },
+      {
+        "name": "broccoli",
+        "id": 11090
+      },
+      {
+        "name": "brussel sprouts",
+        "id": 11098
+      },
+      {
+        "name": "cabbage",
+        "id": 11109
+      },
+      {
+        "name": "capers",
+        "id": 2054
+      },
+      {
+        "name": "carrots",
+        "id": 11124
+      },
+      {
+        "name": "cauliflower",
+        "id": 11135
+      },
+      {
+        "name": "celery",
+        "id": 11143
+      },
+      {
+        "name": "chickpea",
+        "id": 16057
+      },
+      {
+        "name": "coconut",
+        "id": 12104
+      },
+      {
+        "name": "corn",
+        "id": 11168
+      },
+      {
+        "name": "cremini mushrooms",
+        "id": 11266
+      },
+      {
+        "name": "cucumber",
+        "id": 11206
+      },
+      {
+        "name": "eggplant",
+        "id": 11209
+      },
+      {
+        "name": "garlic",
+        "id": 11215
+      },
+      {
+        "name": "guacamole",
+        "id": 1009037
+      },
+      {
+        "name": "jalapeno",
+        "id": 11979
+      },
+      {
+        "name": "kale",
+        "id": 11233
+      },
+      {
+        "name": "lemon",
+        "id": 9150
+      },
+      {
+        "name": "lettuce",
+        "id": 11252
+      },
+      {
+        "name": "mushroom",
+        "id": 11260
+      },
+      {
+        "name": "olives",
+        "id": 9195
+      },
+      {
+        "name": "onion",
+        "id": 11282
+      },
+      {
+        "name": "peas",
+        "id": 11304
+      },
+      {
+        "name": "peppers",
+        "id": 10111333
+      },
+      {
+        "name": "potatoes",
+        "id": 11362
+      },
+      {
+        "name": "pumpkin",
+        "id": 11422
+      },
+      {
+        "name": "romaine lettuce",
+        "id": 10111251
+      },
+      {
+        "name": "spinach",
+        "id": 10011457
+      },
+      {
+        "name": "tomatoes",
+        "id": 11529
+      }
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+@import '../styles/ant-theme-vars';
+
+.ingredients-menu {
+  min-height: 100vh;
+  background-color: #e5e5e5
+}
+
+.menu-item-checkbox {
+  width: 100%;
+}
+
+.ant-menu-light .ant-menu-inline.ant-menu-sub {
+  background-color: transparent;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: lighten(@primary-color, 60);
+}
+
+.ant-menu-vertical .ant-menu-item::after, .ant-menu-vertical-left .ant-menu-item::after, .ant-menu-vertical-right .ant-menu-item::after, .ant-menu-inline .ant-menu-item::after {
+  border: none;
+}
+
+.bold-text {
+  font-weight: bold;
+}

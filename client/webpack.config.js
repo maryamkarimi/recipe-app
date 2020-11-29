@@ -1,7 +1,11 @@
 const path = require("path");
+const fs = require("fs");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const lessToJs = require("less-vars-to-js");
 require("babel-polyfill");
+
+const themeVariables = lessToJs(fs.readFileSync(path.join(__dirname, "./src/styles/ant-theme-vars.less"), "utf-8"))
 
 module.exports = {
     entry: {
@@ -14,14 +18,27 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                loader: "babel-loader"
+                loader: "babel-loader",
+                options: {
+                    plugins: [
+                        ['import', { libraryName: 'antd', style: true }]
+                    ]
+                }
             },
             {
                 test: /\.less$/,
                 use: [
                     { loader: 'style-loader' },
                     { loader: 'css-loader' },
-                    { loader: 'less-loader' }
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            lessOptions: {
+                                modifyVars: themeVariables,
+                                javascriptEnabled: true
+                            }
+                        }
+                    }
                 ]
             },
             {
@@ -30,9 +47,9 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpg|gif|woff|woff2|eot|ttf|otf)$/,
-                  use: [
+                use: [
                     'file-loader',
-                  ],
+                ],
             }
         ]
     },
