@@ -7,7 +7,8 @@ const IngredientsList = (props) => {
 
       {props.ingredients.map((ingredient, i)=>(
           <li key={i}>
-          {ingredient.measures.us.amount + " " + ingredient.measures.us.unitShort + " " + ingredient.name}
+          
+          {ingredient.measures.us.amount*props.servingSize + " " + ingredient.measures.us.unitShort + " " + ingredient.name}
        
         </li>
 

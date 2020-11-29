@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import IngredientsList from './IngredientsList';
 import InstructionsList from './InstructionsList';
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-//var servingMultiplier = React.useState(servingMultiplier, setServingMultiplier)
+
 
 const data = {
     "id": 716429,
@@ -382,6 +382,27 @@ const data = {
 }
 
 const RecipeDetailPage = () => {
+
+
+
+    const [servingMultiplier, addServe] = useState(0);
+
+    //var servingMultiplier = React.useState(servingMultiplier, setServingMultiplier)
+    
+    
+    function addServing(){
+        addServe(servingMultiplier + 1);
+    }
+    
+    function removeServing(){
+        if (servingMultiplier >= 0) {
+        addServe(servingMultiplier - 1);
+        }
+        
+    }
+
+
+
   const classes = useStyles();
   return (
     <div>
@@ -397,6 +418,7 @@ const RecipeDetailPage = () => {
       <Grid container spacing={3}>
       <Grid item xs = {1}></Grid>
         <Grid item xs = {2}>
+        <Paper className={classes.paper}>
           <h3>This dish goes well with:</h3>
           {data.winePairing.pairedWines.map((wine, i)=>(
           <li key={i}>
@@ -407,24 +429,14 @@ const RecipeDetailPage = () => {
           {data.winePairing.productMatches.map((wine, i)=>( 
           <a href={wine.link}><img src={wine.imageUrl}></img></a>
         ))}
-        
+        </Paper>
         </Grid>
         <Grid item xs = {4}>
         <Paper className={classes.paper}>
         <a href={data.sourceUrl}>
           <img src={data.image}></img>
           </a>
-          <h3>Serving Size: {data.servings} {" "} Ready In: {data.readyInMinutes} Minutes</h3>
-          <Typography variant="h5" gutterBottom>
-          <UpIcon color="secondary" fontSize="medium"/>
-          <TextField
-            id="filled-secondary"
-            label="Filled secondary"
-            variant="filled"
-            color="secondary"
-          />
-          <DownIcon color="secondary" fontSize="medium"/>
-          </Typography>
+          <h3>Serving Size: <UpIcon color="secondary" fontSize="medium" onClick={addServing}/> {data.servings+servingMultiplier} {" "} <DownIcon color="secondary" fontSize="medium" onClick={removeServing}/> Ready In: {data.readyInMinutes} Minutes</h3>
         </Paper>
         </Grid>
         <Grid item xs = {4}>
@@ -460,7 +472,7 @@ const RecipeDetailPage = () => {
         <Grid item xs = {5}>
           <Paper className={classes.paper}>
             <h1>Ingredients:</h1>
-            <IngredientsList ingredients={data.extendedIngredients}/>
+            <IngredientsList ingredients={data.extendedIngredients} servingSize={data.servings+servingMultiplier}/>
 
           </Paper>
         </Grid>
