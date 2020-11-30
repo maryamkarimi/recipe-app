@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: theme.palette.text.primary,
   },
+  recipeImage: {
+    maxWidth: '100%',
+    maxHeight: '100%',
+  },
 }));
 
 const data = {
@@ -408,11 +412,9 @@ const RecipeDetailPage = () => {
           <Paper className={classes.paper}>
             <a href={data.sourceUrl}>
               <img
-                style={{
-                  maxWidth: '100%',
-                  maxHeight: '100%',
-                }}
+                className={classes.recipeImage}
                 src={data.image}
+                alt={data.title}
               />
             </a>
             <h3>
