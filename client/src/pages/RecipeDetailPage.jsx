@@ -6,15 +6,21 @@ import HeartIcon from '@material-ui/icons/Favorite';
 import SmileyIcon from '@material-ui/icons/InsertEmoticon';
 import SadIcon from '@material-ui/icons/SentimentVeryDissatisfied';
 import Typography from '@material-ui/core/Typography';
+import { Layout } from 'antd';
 import NutritionInfoCard from './NutritionInfoCard';
 import SimilarRecipes from './SimilarRecipes';
 import InstructionsList from './InstructionsList';
 import IngredientsList from './IngredientsList';
 
+const { Header } = Layout;
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  mainContainer: {
+    paddingTop: '80px',
   },
   paper: {
     padding: theme.spacing(1),
@@ -24,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   recipeImage: {
     maxWidth: '100%',
     maxHeight: '100%',
-  },
+  }
 }));
 
 const data = {
@@ -383,110 +389,118 @@ const data = {
 const RecipeDetailPage = () => {
   const classes = useStyles();
   return (
-    <div>
-      <Grid container spacing={3}>
-        <Grid item xs={1} />
-        <Grid item xs={10}>
-          <Paper className={classes.paper}>
-            <h1>{data.title}</h1>
-          </Paper>
-        </Grid>
-        <Grid item xs={1} />
-      </Grid>
-      <Grid container spacing={3}>
-        <Grid item xs={1} />
-        <Grid item xs={2}>
-          <Paper className={classes.paper}>
-            <h3>This dish goes well with:</h3>
-            {data.winePairing.pairedWines.map((wine, i) => (
-              <li key={i}>
-                {wine}
-              </li>
-            ))}
-            {data.winePairing.productMatches.map((wine, i) => (
-              <a href={wine.link}><img src={wine.imageUrl} /></a>
-            ))}
-          </Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>
-            <a href={data.sourceUrl}>
-              <img
-                className={classes.recipeImage}
-                src={data.image}
-                alt={data.title}
-              />
-            </a>
-            <h3>
+    <>
+      <Header className="header">
+        <a href="/" className="header-app-name">App Name</a>
+        <a href="/recipe">Search by Recipe</a>
+        <a href="/ingredient">Search by Ingredient</a>
+      </Header>
 
-              {' '}
-              Ready In:
-              {' '}
-              {data.readyInMinutes}
-              {' '}
-              Minutes
-            </h3>
-          </Paper>
+      <div className={classes.mainContainer}>
+        <Grid container spacing={3}>
+          <Grid item xs={1} />
+          <Grid item xs={10}>
+            <Paper className={classes.paper}>
+              <h1>{data.title}</h1>
+            </Paper>
+          </Grid>
+          <Grid item xs={1} />
         </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>
-            <Typography variant="h5" gutterBottom>
-              <b>{`${data.aggregateLikes} Likes`}</b>
-              {' '}
-              <HeartIcon color="secondary" fontSize="medium" />
-            </Typography>
-            <Typography variant="h5" gutterBottom>
-              Tasty Score:
-              {' '}
-              <b>{data.spoonacularScore}</b>
-            </Typography>
-            <Typography variant="h5" gutterBottom>
-              Health Score:
-              {' '}
-              <b>{data.healthScore}</b>
-            </Typography>
-            <Typography variant="h5" gutterBottom>
-              Weight Watchers Smart Points:
-              {' '}
-              <b>{data.weightWatcherSmartPoints}</b>
-            </Typography>
-            <Typography variant="h5" gutterBottom>
-              Vegetarian:
-              {' '}
-              {data.vegetarian ? <SmileyIcon color="secondary" fontSize="medium" /> : <SadIcon color="primary" fontSize="medium" /> }
-            </Typography>
-            <Typography variant="h5" gutterBottom>
-              Gluten Free:
-              {' '}
-              {data.glutenFree ? <SmileyIcon color="secondary" fontSize="medium" /> : <SadIcon color="primary" fontSize="medium" /> }
-            </Typography>
-            <Typography variant="h5" gutterBottom>
-              Ketogenic:
-              {' '}
-              {data.ketogenic ? <SmileyIcon color="secondary" fontSize="medium" /> : <SadIcon color="primary" fontSize="medium" /> }
-            </Typography>
+        <Grid container spacing={3}>
+          <Grid item xs={1} />
+          <Grid item xs={2}>
+            <Paper className={classes.paper}>
+              <h3>This dish goes well with:</h3>
+              {data.winePairing.pairedWines.map((wine, i) => (
+                <li key={i}>
+                  {wine}
+                </li>
+              ))}
+              {data.winePairing.productMatches.map((wine, i) => (
+                <a href={wine.link}><img src={wine.imageUrl} /></a>
+              ))}
+            </Paper>
+          </Grid>
+          <Grid item xs={4}>
+            <Paper className={classes.paper}>
+              <a href={data.sourceUrl}>
+                <img
+                  className={classes.recipeImage}
+                  src={data.image}
+                  alt={data.title}
+                />
+              </a>
+              <h3>
 
-          </Paper>
-        </Grid>
-        <Grid item xs={1} />
-      </Grid>
-      <Grid container spacing={1}>
-        <Grid item xs={1} />
-        <Grid item xs={5}>
-          <Paper className={classes.paper}>
-            <IngredientsList ingredients={data.extendedIngredients} servingSize={data.servings} />
-          </Paper>
-        </Grid>
-        <Grid item xs={5}>
-          <Paper className={classes.paper}>
-            <InstructionsList id={data.id} />
-          </Paper>
-        </Grid>
-      </Grid>
+                {' '}
+                Ready In:
+                {' '}
+                {data.readyInMinutes}
+                {' '}
+                Minutes
+              </h3>
+            </Paper>
+          </Grid>
+          <Grid item xs={4}>
+            <Paper className={classes.paper}>
+              <Typography variant="h5" gutterBottom>
+                <b>{`${data.aggregateLikes} Likes`}</b>
+                {' '}
+                <HeartIcon color="secondary" fontSize="medium" />
+              </Typography>
+              <Typography variant="h5" gutterBottom>
+                Tasty Score:
+                {' '}
+                <b>{data.spoonacularScore}</b>
+              </Typography>
+              <Typography variant="h5" gutterBottom>
+                Health Score:
+                {' '}
+                <b>{data.healthScore}</b>
+              </Typography>
+              <Typography variant="h5" gutterBottom>
+                Weight Watchers Smart Points:
+                {' '}
+                <b>{data.weightWatcherSmartPoints}</b>
+              </Typography>
+              <Typography variant="h5" gutterBottom>
+                Vegetarian:
+                {' '}
+                {data.vegetarian ? <SmileyIcon color="secondary" fontSize="medium" /> : <SadIcon color="primary" fontSize="medium" /> }
+              </Typography>
+              <Typography variant="h5" gutterBottom>
+                Gluten Free:
+                {' '}
+                {data.glutenFree ? <SmileyIcon color="secondary" fontSize="medium" /> : <SadIcon color="primary" fontSize="medium" /> }
+              </Typography>
+              <Typography variant="h5" gutterBottom>
+                Ketogenic:
+                {' '}
+                {data.ketogenic ? <SmileyIcon color="secondary" fontSize="medium" /> : <SadIcon color="primary" fontSize="medium" /> }
+              </Typography>
 
-      <SimilarRecipes id={data.id} />
-      <NutritionInfoCard id={data.id} />
-    </div>
+            </Paper>
+          </Grid>
+          <Grid item xs={1} />
+        </Grid>
+        <Grid container spacing={1}>
+          <Grid item xs={1} />
+          <Grid item xs={5}>
+            <Paper className={classes.paper}>
+              <IngredientsList ingredients={data.extendedIngredients} servingSize={data.servings} />
+            </Paper>
+          </Grid>
+          <Grid item xs={5}>
+            <Paper className={classes.paper}>
+              <InstructionsList id={data.id} />
+            </Paper>
+          </Grid>
+        </Grid>
+
+        <SimilarRecipes id={data.id} />
+        <NutritionInfoCard id={data.id} />
+      </div>
+    </>
   );
 };
 
