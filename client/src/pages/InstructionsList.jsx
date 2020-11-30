@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
+import { Row } from 'antd';
 
-var i = 0;
 const data = [
     {
         "name": "",
@@ -299,19 +299,20 @@ const data = [
     }
 ]
 
-const InstructionsList = (props) => {
-  return ( <div> 
-      <ol>
-      {data[0].steps.map((step, i)=>(
-          <li key={i}>
+const InstructionsList = (props) => (
+  <div>
+    <Row>
+      <h1>Instuctions</h1>
+    </Row>
+    <ol>
+      {data[0].steps.map((step, i) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <li key={i} style={{ textAlign: 'left' }}>
           {step.step}
-       
         </li>
-
-
       ))}
-      </ol>
-  </div>);
-};
+    </ol>
+  </div>
+);
 
 export default InstructionsList;

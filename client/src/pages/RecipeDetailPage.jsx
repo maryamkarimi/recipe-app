@@ -1,19 +1,15 @@
-import React, { useState } from "react";
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import IngredientsList from './IngredientsList';
-import InstructionsList from './InstructionsList';
-import SimilarRecipes from './SimilarRecipes';
-import NutritionInfoCard from './NutritionInfoCard';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import HeartIcon from '@material-ui/icons/Favorite';
-import CheckIcon from '@material-ui/icons/Check';
 import SmileyIcon from '@material-ui/icons/InsertEmoticon';
 import SadIcon from '@material-ui/icons/SentimentVeryDissatisfied';
 import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import UpIcon from '@material-ui/icons/ArrowUpward';
-import DownIcon from '@material-ui/icons/ArrowDownward';
+import NutritionInfoCard from './NutritionInfoCard';
+import SimilarRecipes from './SimilarRecipes';
+import InstructionsList from './InstructionsList';
+import IngredientsList from './IngredientsList';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,8 +22,6 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.primary,
   },
 }));
-
-
 
 const data = {
     "id": 716429,
@@ -383,120 +377,114 @@ const data = {
 }
 
 const RecipeDetailPage = () => {
-
-
-
-    const [servingMultiplier, addServe] = useState(0);
-
-    //var servingMultiplier = React.useState(servingMultiplier, setServingMultiplier)
-    
-    
-    function addServing(){
-        addServe(servingMultiplier + 1);
-    }
-    
-    function removeServing(){
-        if (servingMultiplier >= 0) {
-        addServe(servingMultiplier - 1);
-        }
-        
-    }
-
-
-
   const classes = useStyles();
   return (
     <div>
       <Grid container spacing={3}>
-        <Grid item xs = {1}>
-      
-        </Grid>
-        <Grid item xs ={10}>
+        <Grid item xs={1} />
+        <Grid item xs={10}>
           <Paper className={classes.paper}>
             <h1>{data.title}</h1>
           </Paper>
         </Grid>
-        <Grid item xs = {1}></Grid>
+        <Grid item xs={1} />
       </Grid>
       <Grid container spacing={3}>
-      <Grid item xs = {1}>
-
-
-      </Grid>
-        <Grid item xs = {2}>
-        <Paper className={classes.paper}>
-          <h3>This dish goes well with:</h3>
-          {data.winePairing.pairedWines.map((wine, i)=>(
-          <li key={i}>
-          {wine}
-        </li>))}
-          {data.winePairing.productMatches.map((wine, i)=>( 
-          <a href={wine.link}><img src={wine.imageUrl}></img></a>
-        ))}
-        </Paper>
+        <Grid item xs={1} />
+        <Grid item xs={2}>
+          <Paper className={classes.paper}>
+            <h3>This dish goes well with:</h3>
+            {data.winePairing.pairedWines.map((wine, i) => (
+              <li key={i}>
+                {wine}
+              </li>
+            ))}
+            {data.winePairing.productMatches.map((wine, i) => (
+              <a href={wine.link}><img src={wine.imageUrl} /></a>
+            ))}
+          </Paper>
         </Grid>
-        <Grid item xs = {4}>
-        <Paper className={classes.paper}>
-        <a href={data.sourceUrl}>
-          <img src={data.image}></img>
-          </a>
-          <h3>Serving Size: <UpIcon color="secondary" fontSize="medium" onClick={addServing}/> {data.servings+servingMultiplier} {" "} <DownIcon color="secondary" fontSize="medium" onClick={removeServing}/> Ready In: {data.readyInMinutes} Minutes</h3>
-        </Paper>
+        <Grid item xs={4}>
+          <Paper className={classes.paper}>
+            <a href={data.sourceUrl}>
+              <img
+                style={{
+                  maxWidth: '100%',
+                  maxHeight: '100%',
+                }}
+                src={data.image}
+              />
+            </a>
+            <h3>
+
+              {' '}
+              Ready In:
+              {' '}
+              {data.readyInMinutes}
+              {' '}
+              Minutes
+            </h3>
+          </Paper>
         </Grid>
-        <Grid item xs = {4}>
-        <Paper className={classes.paper}>
-        <Typography variant="h5" gutterBottom>
-             <b>{data.aggregateLikes + " Likes"}</b> <HeartIcon color="secondary" fontSize="medium"/>
-          </Typography>
-          <Typography variant="h5" gutterBottom>
-            Tasty Score: <b>{data.spoonacularScore}</b>
-          </Typography>
-          <Typography variant="h5" gutterBottom>
-            Health Score: <b>{data.healthScore}</b>
-          </Typography>
-          <Typography variant="h5" gutterBottom>
-            Weight Watchers Smart Points: <b>{data.weightWatcherSmartPoints}</b>
-          </Typography>
-          <Typography variant="h5" gutterBottom>
-            Vegetarian: {data.vegetarian ? <SmileyIcon color="secondary" fontSize="medium"/> : <SadIcon color="primary" fontSize="medium"/> }
-          </Typography>
-          <Typography variant="h5" gutterBottom>
-            Gluten Free: {data.glutenFree ? <SmileyIcon color="secondary" fontSize="medium"/> : <SadIcon color="primary" fontSize="medium"/> }
-          </Typography>
-          <Typography variant="h5" gutterBottom>
-            Ketogenic: {data.ketogenic ? <SmileyIcon color="secondary" fontSize="medium"/> : <SadIcon color="primary" fontSize="medium"/> }
-          </Typography>
+        <Grid item xs={4}>
+          <Paper className={classes.paper}>
+            <Typography variant="h5" gutterBottom>
+              <b>{`${data.aggregateLikes} Likes`}</b>
+              {' '}
+              <HeartIcon color="secondary" fontSize="medium" />
+            </Typography>
+            <Typography variant="h5" gutterBottom>
+              Tasty Score:
+              {' '}
+              <b>{data.spoonacularScore}</b>
+            </Typography>
+            <Typography variant="h5" gutterBottom>
+              Health Score:
+              {' '}
+              <b>{data.healthScore}</b>
+            </Typography>
+            <Typography variant="h5" gutterBottom>
+              Weight Watchers Smart Points:
+              {' '}
+              <b>{data.weightWatcherSmartPoints}</b>
+            </Typography>
+            <Typography variant="h5" gutterBottom>
+              Vegetarian:
+              {' '}
+              {data.vegetarian ? <SmileyIcon color="secondary" fontSize="medium" /> : <SadIcon color="primary" fontSize="medium" /> }
+            </Typography>
+            <Typography variant="h5" gutterBottom>
+              Gluten Free:
+              {' '}
+              {data.glutenFree ? <SmileyIcon color="secondary" fontSize="medium" /> : <SadIcon color="primary" fontSize="medium" /> }
+            </Typography>
+            <Typography variant="h5" gutterBottom>
+              Ketogenic:
+              {' '}
+              {data.ketogenic ? <SmileyIcon color="secondary" fontSize="medium" /> : <SadIcon color="primary" fontSize="medium" /> }
+            </Typography>
 
           </Paper>
         </Grid>
-        <Grid item xs = {1}></Grid>
+        <Grid item xs={1} />
       </Grid>
       <Grid container spacing={1}>
-      <Grid item xs = {1}></Grid>
-        <Grid item xs = {5}>
+        <Grid item xs={1} />
+        <Grid item xs={5}>
           <Paper className={classes.paper}>
-            <h1>Ingredients:</h1>
-            <IngredientsList ingredients={data.extendedIngredients} servingSize={data.servings+servingMultiplier}/>
-
+            <IngredientsList ingredients={data.extendedIngredients} servingSize={data.servings} />
           </Paper>
         </Grid>
-        <Grid item xs = {5}>
-        <Paper className={classes.paper}>
-        <h1>Instuctions:</h1>
-        <InstructionsList id={data.id}/>
-        </Paper>
+        <Grid item xs={5}>
+          <Paper className={classes.paper}>
+            <InstructionsList id={data.id} />
+          </Paper>
         </Grid>
       </Grid>
-     
-         
-            <SimilarRecipes id={data.id}/>
-            <NutritionInfoCard id={data.id}/>
-   
-      
 
-
-
-  </div>
+      <SimilarRecipes id={data.id} />
+      <NutritionInfoCard id={data.id} />
+    </div>
   );
 };
 
