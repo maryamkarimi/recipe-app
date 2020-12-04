@@ -57,8 +57,7 @@ const IngredientPage = () => {
     <Layout className="search-by-ingredient">
 
       <Header className="header">
-        <div className="header-app-name">App Name</div>
-        <a href="/">Home</a>
+        <a href="/" className="header-app-name">App Name</a>
         <a href="/recipe">Search by Recipe</a>
       </Header>
 
