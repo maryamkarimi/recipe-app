@@ -5,6 +5,7 @@ import '../styles/RecipePage.less';
 import SelectionCard from '../components/SelectionCard';
 // TODO - get recipe data using API
 import recipeData from '../data/dummyRecipes.json'
+import {Grid, Card, CardContent, Typography, CardHeader, CardMedia, Container} from "@material-ui/core";
 
 // I was going off of the figma diagram when choosing how many recipes to show
 const PAGE_SIZE = 6;
@@ -12,36 +13,25 @@ const pageArray = (arr, pageNum, size) => {
   return arr.slice((pageNum - 1) * size, pageNum * size);
 }
 
-const mapRows = (recipeArr) => {
-  const rowsToDisplay = [];
-  for (let i = 1; i <= Math.floor(PAGE_SIZE / 2); i++) {
-    rowsToDisplay.push(
-      <Row key={i} align='middle' gutter={[32, 24]} justify='center'>
-        {
-          pageArray(recipeArr, i, 2).map((recipe) => {
-            return <Col key={recipe.id} span={6} >
-              <SelectionCard
-                selectionTitle={recipe.title}
-                coverImage={
-                  <div className='thumbnail-wrapper'>
-                    <img className='thumbnail' src={recipe.image} alt={recipe.title} />
-                  </div>
-                }
-                routePath={`/recipe/${recipe.id}`}
-              />
-            </Col>
-          })
-        }
-      </Row>
-    );
-  }
-
-  return rowsToDisplay;
-}
+const recipeGrid = (recipeArr) =>
+    <Grid container spacing={2} direction={'row'} justify={'flex-start'} alignItems={'flex-start'}>
+        {recipeArr.map((recipe, index) =>
+            <Grid item xs={12} md={6} key={index}>
+                <Card>
+                    <CardMedia image={recipe.image} className={'recipe-card-img'} title={recipe.title}/>
+                    <CardContent>
+                        <Typography variant={'h5'} component={'h2'}>
+                            {recipe.title}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
+        )}
+    </Grid>;
 
 const RecipePage = () => {
   const [recipes, setRecipes] = useState(pageArray(recipeData, 1, PAGE_SIZE));
-  const [rows, setRows] = useState(mapRows(recipes));
+  const [rows, setRows] = useState(recipeGrid(recipes));
 
   return (
     <>
@@ -50,8 +40,10 @@ const RecipePage = () => {
           {/* TODO - Wire search functionality to API */}
           <Input size='large' placeholder='Search for recipes' allowClear />
         </Col>
-        {rows}
       </Row>
+        <Container maxWidth={'md'}>
+            {rows}
+        </Container>
       <Row align='middle' gutter={[32, 24]} justify='center'>
         <Col>
           <Pagination
@@ -62,7 +54,7 @@ const RecipePage = () => {
               (page, pageSize) => {
                 const nextRecipeArr = pageArray(recipeData, page, pageSize);
                 setRecipes(nextRecipeArr);
-                setRows(mapRows(nextRecipeArr));;
+                setRows(recipeGrid(nextRecipeArr));
               }
             }
           />
