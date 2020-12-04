@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import HeartIcon from '@material-ui/icons/Favorite';
-import SmileyIcon from '@material-ui/icons/InsertEmoticon';
-import SadIcon from '@material-ui/icons/SentimentVeryDissatisfied';
+import CheckIcon from '@material-ui/icons/Check';
+import CloseIcon from '@material-ui/icons/Clear';
 import Typography from '@material-ui/core/Typography';
 import { Layout } from 'antd';
 import NutritionInfoCard from './NutritionInfoCard';
@@ -466,17 +466,17 @@ const RecipeDetailPage = () => {
               <Typography variant="h5" gutterBottom>
                 Vegetarian:
                 {' '}
-                {data.vegetarian ? <SmileyIcon color="secondary" fontSize="medium" /> : <SadIcon color="primary" fontSize="medium" /> }
+                {data.vegetarian ? <CheckIcon color="secondary" fontSize="medium" /> : <CloseIcon color="primary" fontSize="medium" /> }
               </Typography>
               <Typography variant="h5" gutterBottom>
                 Gluten Free:
                 {' '}
-                {data.glutenFree ? <SmileyIcon color="secondary" fontSize="medium" /> : <SadIcon color="primary" fontSize="medium" /> }
+                {data.glutenFree ? <CheckIcon color="secondary" fontSize="medium" /> : <CloseIcon color="primary" fontSize="medium" /> }
               </Typography>
               <Typography variant="h5" gutterBottom>
                 Ketogenic:
                 {' '}
-                {data.ketogenic ? <SmileyIcon color="secondary" fontSize="medium" /> : <SadIcon color="primary" fontSize="medium" /> }
+                {data.ketogenic ? <CheckIcon color="secondary" fontSize="medium" /> : <CloseIcon color="primary" fontSize="medium" /> }
               </Typography>
 
             </Paper>
