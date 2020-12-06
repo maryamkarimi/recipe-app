@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Col, Row, Input, Pagination, Button } from 'antd';
 
 import '../styles/RecipePage.less';
@@ -14,8 +15,6 @@ import {
   CardMedia,
   Container,
 } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
-import { useEffect } from 'react';
 
 // I was going off of the figma diagram when choosing how many recipes to show
 const PAGE_SIZE = 6;
