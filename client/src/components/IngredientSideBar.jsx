@@ -36,7 +36,6 @@ const IngredientSideBar = ({
                   <Checkbox
                     value={ingredient.name}
                     onChange={(event) => {
-                      console.log('Event:', event);
                       return handleCheckboxChange(
                         category.category_name,
                         event
