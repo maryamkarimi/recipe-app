@@ -29,7 +29,7 @@ const IngredientsList = ({ ingredients, servingSize }) => {
 
         <Row>
           <h3>Serving Size:</h3>
-          <DownIcon color="secondary" fontSize="medium" onClick={removeServing} />
+          <DownIcon color={servingSize + servingMultiplier<=1 ? "primary" : "secondary"} fontSize="medium" onClick={removeServing}/>
           <h3>{servingSize + servingMultiplier}</h3>
           <UpIcon color="secondary" fontSize="medium" onClick={addServing} />
 
