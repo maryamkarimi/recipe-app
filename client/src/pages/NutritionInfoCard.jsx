@@ -1,11 +1,16 @@
-import React from 'react';
+import React from "react";
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
+import Divider from '@material-ui/core/Divider';
+import '../App.css';
 var i = 0;
 const data = {
 	"calories": "316",
@@ -183,7 +188,7 @@ const data = {
             "percentOfDailyNeeds": 1.53,
             "title": "Vitamin A"
         }
-    ]
+    ]    
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -201,26 +206,55 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-const SimilarRecipes = (props) => {
+const NutritionInfoCard = (props) => {
     const classes = useStyles();
   return ( <div> 
 
     <Card className={classes.root} variant="outlined">
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Nutrition Facts
+      <Typography variant="h4" component="h2">
+            Nutrition Facts   
         </Typography>
+        <Typography variant="h6" component="h2">
+            Per 1 Serving
+        </Typography>
+        <Divider />
         <Typography variant="h5" component="h2">
-      
+          Calories: {data.calories}
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
+        <Divider />
+
+        <Typography variant="body2" component="p">
+          <b>Total Fat</b> {data.fat}
+          <br />
+        <Divider />
+        <p class="indent">Saturated Fat: {data.bad[2].amount}
+        <Divider />
+        <b>Cholesterol: </b> {data.bad[5].amount}
+        <Divider />
+        <b>Sodium: </b>{data.bad[6].amount}
+        <Divider />
+        <b>Total Carbohydrates</b> {data.carbs}
+        <Divider />
+        <p class="indent">Sugar: {data.bad[1].amount}
+        <Divider />
+        <b>Protein: </b> {data.protein}
+        </p>
+        </p>
+        <Divider />
+        <Divider />
+        <Divider />
         </Typography>
         <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
+            {data.good[1].title}: <b>{data.good[1].percentOfDailyNeeds}%</b>
+            <Divider />
+            {data.good[2].title}: <b>{data.good[2].percentOfDailyNeeds}%</b>
+            <Divider />
+            {data.good[3].title}: <b>{data.good[3].percentOfDailyNeeds}%</b>
+            <Divider />
+            {data.good[4].title}: <b>{data.good[4].percentOfDailyNeeds}%</b>
+            <Divider />
+            </Typography>
       </CardContent>
       <CardActions>
         <Button size="small">Learn More</Button>
@@ -230,4 +264,4 @@ const SimilarRecipes = (props) => {
   </div>);
 };
 
-export default SimilarRecipes;
+export default NutritionInfoCard;

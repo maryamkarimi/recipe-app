@@ -408,6 +408,45 @@ const RecipeDetailPage = () => {
         </Grid>
         <Grid container spacing={3}>
           <Grid item xs={1} />
+          <Grid item xs={10}>
+            <Paper className={classes.paper}>
+              <Typography variant="h5" gutterBottom>
+                <b>{`${data.aggregateLikes} Likes`}</b>
+                {' '}
+                <HeartIcon color="secondary" fontSize="medium" />
+              
+                Tasty Score:
+                {' '}
+                <b>{data.spoonacularScore}</b>
+             
+                Health Score:
+                {' '}
+                <b>{data.healthScore}</b>
+              
+                Weight Watchers Smart Points:
+                {' '}
+                <b>{data.weightWatcherSmartPoints}</b>
+            
+                Vegetarian:
+                {' '}
+                {data.vegetarian ? <CheckIcon color="secondary" fontSize="medium" /> : <CloseIcon color="primary" fontSize="medium" /> }
+              
+                Gluten Free:
+                {' '}
+                {data.glutenFree ? <CheckIcon color="secondary" fontSize="medium" /> : <CloseIcon color="primary" fontSize="medium" /> }
+             
+                Ketogenic:
+                {' '}
+                {data.ketogenic ? <CheckIcon color="secondary" fontSize="medium" /> : <CloseIcon color="primary" fontSize="medium" /> }
+              </Typography>
+
+            </Paper>
+          </Grid>
+        </Grid>
+
+
+        <Grid container spacing={3}>
+          <Grid item xs={1} />
           <Grid item xs={2}>
             <Paper className={classes.paper}>
               <h3>This dish goes well with:</h3>
@@ -421,7 +460,7 @@ const RecipeDetailPage = () => {
               ))}
             </Paper>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={6}>
             <Paper className={classes.paper}>
               <a href={data.sourceUrl}>
                 <img
@@ -441,47 +480,10 @@ const RecipeDetailPage = () => {
               </h3>
             </Paper>
           </Grid>
-          <Grid item xs={4}>
-            <Paper className={classes.paper}>
-              <Typography variant="h5" gutterBottom>
-                <b>{`${data.aggregateLikes} Likes`}</b>
-                {' '}
-                <HeartIcon color="secondary" fontSize="medium" />
-              </Typography>
-              <Typography variant="h5" gutterBottom>
-                Tasty Score:
-                {' '}
-                <b>{data.spoonacularScore}</b>
-              </Typography>
-              <Typography variant="h5" gutterBottom>
-                Health Score:
-                {' '}
-                <b>{data.healthScore}</b>
-              </Typography>
-              <Typography variant="h5" gutterBottom>
-                Weight Watchers Smart Points:
-                {' '}
-                <b>{data.weightWatcherSmartPoints}</b>
-              </Typography>
-              <Typography variant="h5" gutterBottom>
-                Vegetarian:
-                {' '}
-                {data.vegetarian ? <CheckIcon color="secondary" fontSize="medium" /> : <CloseIcon color="primary" fontSize="medium" /> }
-              </Typography>
-              <Typography variant="h5" gutterBottom>
-                Gluten Free:
-                {' '}
-                {data.glutenFree ? <CheckIcon color="secondary" fontSize="medium" /> : <CloseIcon color="primary" fontSize="medium" /> }
-              </Typography>
-              <Typography variant="h5" gutterBottom>
-                Ketogenic:
-                {' '}
-                {data.ketogenic ? <CheckIcon color="secondary" fontSize="medium" /> : <CloseIcon color="primary" fontSize="medium" /> }
-              </Typography>
-
-            </Paper>
+          
+          <Grid item xs={2} >
+          <NutritionInfoCard id={data.id} />
           </Grid>
-          <Grid item xs={1} />
         </Grid>
         <Grid container spacing={1}>
           <Grid item xs={1} />
@@ -498,7 +500,7 @@ const RecipeDetailPage = () => {
         </Grid>
 
         <SimilarRecipes id={data.id} />
-        <NutritionInfoCard id={data.id} />
+        
       </div>
     </>
   );
