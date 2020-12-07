@@ -4,7 +4,7 @@ import { Badge, Row, Col, Button, Layout } from 'antd';
 import { SearchOutlined, RedoOutlined } from '@ant-design/icons';
 import IngredientSideBar from '../components/IngredientSideBar';
 import IngredientSearchBox from '../components/IngredientSearchBox';
-import './IngredientPage.less';
+import '../styles/IngredientPage.less';
 
 import categories from '../data/ingredientsByCategory.json';
 

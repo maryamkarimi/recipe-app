@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Col, Row, Input, Pagination, Button } from 'antd';
+import { Col, Row, Input, Pagination, Button, Layout } from 'antd';
 import {
   Grid,
   Card,
@@ -14,6 +14,8 @@ import '../styles/RecipePage.less';
 
 import { getRecipeByIngredientsService, getRecipeByBasicSearchService } from '../service/recipe/index';
 import recipeData from '../data/dummyRecipes.json';
+
+const { Header, Content } = Layout;
 
 // Higher values -> less calls that can be made
 const MAX_RESULTS = 24;
@@ -65,7 +67,7 @@ const RecipePage = () => {
   };
 
   useEffect(() => {
-    if (location.state !== null && location.state.selectedIngredients) {
+    if (location.state) {
       setSearchTerms(location.state.selectedIngredients);
       history.replace({
         state: null
@@ -74,7 +76,6 @@ const RecipePage = () => {
   }, [history, location]);
 
   useEffect(() => {
-    console.log('searchTerms effect', searchTerms)
     if (searchTerms.length > 0) {
       getRecipeByIngredientsService(searchTerms, MAX_RESULTS).then(response => {
         setRecipes(response);
@@ -97,35 +98,42 @@ const RecipePage = () => {
   };
 
   return (
-    <>
-      <Row>
-        <Col span={4}>
-          <Button
-            onClick={() => history.push('/')}>{`< Homepage`}</Button>
-        </Col>
-      </Row>
-      <Row align='middle' gutter={[32, 24]} justify='center'>
-        <Col span={12}>
-          {/* TODO - Wire search functionality to API */}
-          <Input size='large' placeholder='Search for recipes' allowClear onPressEnter={search} />
-        </Col>
-      </Row>
-      <Container maxWidth={'md'}>{rows}</Container>
-      <Row align='middle' gutter={[32, 24]} justify='center'>
-        <Col>
-          <Pagination
-            defaultCurrent={1}
-            total={recipes.length}
-            pageSize={PAGE_SIZE}
-            onChange={
-              (page, pageSize) => {
-                updateRecipesToDisplays(recipes, page, pageSize)
+    <Layout className='search-by-recipe'>
+      <Header className='header'>
+        <a href='/' className='header-app-name'>
+          App Name
+        </a>
+        <a href="/ingredient">Search By Ingredient</a>
+      </Header>
+
+      <Content className='content'>
+        <Row>
+          <Col span={4}>
+          </Col>
+        </Row>
+        <Row align='middle' gutter={[32, 24]} justify='center'>
+          <Col span={12}>
+            {/* TODO - Wire search functionality to API */}
+            <Input size='large' placeholder='Search for recipes' allowClear onPressEnter={search} />
+          </Col>
+        </Row>
+        <Container maxWidth={'md'}>{rows}</Container>
+        <Row align='middle' gutter={[32, 24]} justify='center'>
+          <Col>
+            <Pagination
+              defaultCurrent={1}
+              total={recipes.length}
+              pageSize={PAGE_SIZE}
+              onChange={
+                (page, pageSize) => {
+                  updateRecipesToDisplays(recipes, page, pageSize)
+                }
               }
-            }
-          />
-        </Col>
-      </Row>
-    </>
+            />
+          </Col>
+        </Row>
+      </Content>
+    </Layout>
   );
 };
 
