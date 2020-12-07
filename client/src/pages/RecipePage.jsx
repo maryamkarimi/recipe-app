@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Col, Row, Input, Pagination, Button } from 'antd';
-
-import '../styles/RecipePage.less';
-import SelectionCard from '../components/SelectionCard';
-// TODO - get recipe data using API
-import recipeData from '../data/dummyRecipes.json';
 import {
   Grid,
   Card,
@@ -15,7 +10,13 @@ import {
   CardMedia,
   Container,
 } from '@material-ui/core';
+import '../styles/RecipePage.less';
 
+import { getRecipeByIngredientsService, getRecipeByBasicSearchService } from '../service/recipe/index';
+import recipeData from '../data/dummyRecipes.json';
+
+// Higher values -> less calls that can be made
+const MAX_RESULTS = 24;
 // I was going off of the figma diagram when choosing how many recipes to show
 const PAGE_SIZE = 6;
 const pageArray = (arr, pageNum, size) => {
@@ -49,20 +50,51 @@ const recipeGrid = (recipeArr) => (
 );
 
 const RecipePage = () => {
-  const [recipes, setRecipes] = useState(pageArray(recipeData, 1, PAGE_SIZE));
-  const [rows, setRows] = useState(recipeGrid(recipes));
+  const [recipes, setRecipes] = useState(recipeData.results);
+  const [displayedRecipes, setDisplayedRecipes] = useState(pageArray(recipes, 1, PAGE_SIZE));
+  const [rows, setRows] = useState(recipeGrid(displayedRecipes));
+
   const [searchTerms, setSearchTerms] = useState([]);
   const history = useHistory();
   const { location } = history;
 
+  const updateRecipesToDisplays = (recipeArr, pageNumber = 1, pageSize = PAGE_SIZE) => {
+    const nextRecipeArr = pageArray(recipeArr, pageNumber, pageSize);
+    setDisplayedRecipes(nextRecipeArr);
+    setRows(recipeGrid(nextRecipeArr));
+  };
+
   useEffect(() => {
-    if (location.state !== null) {
-      setSearchTerms(location.state);
+    if (location.state !== null && location.state.selectedIngredients) {
+      setSearchTerms(location.state.selectedIngredients);
       history.replace({
         state: null
       });
     }
   }, [history, location]);
+
+  useEffect(() => {
+    console.log('searchTerms effect', searchTerms)
+    if (searchTerms.length > 0) {
+      getRecipeByIngredientsService(searchTerms, MAX_RESULTS).then(response => {
+        setRecipes(response);
+        updateRecipesToDisplays(response);
+      });
+    }
+  }, [searchTerms]);
+
+
+  const search = (e) => {
+    const searchTerm = e.target.value;
+    e.target.value = '';
+
+    // Calls the spoonacular API for a basic natural language search
+    getRecipeByBasicSearchService(searchTerm, MAX_RESULTS).then(response => {
+      setRecipes(response.results)
+      updateRecipesToDisplays(response.results);
+    });
+
+  };
 
   return (
     <>
@@ -75,7 +107,7 @@ const RecipePage = () => {
       <Row align='middle' gutter={[32, 24]} justify='center'>
         <Col span={12}>
           {/* TODO - Wire search functionality to API */}
-          <Input size='large' placeholder='Search for recipes' allowClear />
+          <Input size='large' placeholder='Search for recipes' allowClear onPressEnter={search} />
         </Col>
       </Row>
       <Container maxWidth={'md'}>{rows}</Container>
@@ -83,13 +115,13 @@ const RecipePage = () => {
         <Col>
           <Pagination
             defaultCurrent={1}
-            total={recipeData.length}
+            total={recipes.length}
             pageSize={PAGE_SIZE}
-            onChange={(page, pageSize) => {
-              const nextRecipeArr = pageArray(recipeData, page, pageSize);
-              setRecipes(nextRecipeArr);
-              setRows(recipeGrid(nextRecipeArr));
-            }}
+            onChange={
+              (page, pageSize) => {
+                updateRecipesToDisplays(recipes, page, pageSize)
+              }
+            }
           />
         </Col>
       </Row>

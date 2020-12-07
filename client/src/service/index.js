@@ -1,3 +1,3 @@
-export const getApiUrl = () => 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com';
+export const getApiUrl = () => 'api.spoonacular.com';
 
 export const getApiKey = () => '###';
