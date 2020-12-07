@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Badge, Row, Col, Button, Layout } from 'antd';
 import { SearchOutlined, RedoOutlined } from '@ant-design/icons';
 import IngredientSideBar from '../components/IngredientSideBar';
@@ -11,6 +12,11 @@ const allCategories = categories.map((category) => {
   return category.category_name;
 });
 
+const initialSelectedIngredients = allCategories.reduce((obj, val) => {
+  obj[val] = 0;
+  return obj;
+}, {});
+
 const { Header, Content, Footer } = Layout;
 
 const IngredientPage = () => {
@@ -18,14 +24,9 @@ const IngredientPage = () => {
   const [
     selectedIngredientPerCategory,
     setSelectedIngredientPerCategory,
-  ] = useState(
-    allCategories.reduce((obj, val) => {
-      obj[val] = 0;
-      return obj;
-    }, {})
-  );
+  ] = useState(initialSelectedIngredients);
 
-  console.log(selectedIngredientPerCategory)
+  const history = useHistory();
 
   const handleSelect = (newIngredient) => {
     setSelectedIngredients((prevIngredients) => [
@@ -41,13 +42,16 @@ const IngredientPage = () => {
   };
 
   const handleCheckboxChange = (selectedCategory, e) => {
-    let newSelectedIngredientPerCategory = Object.assign({}, selectedIngredientPerCategory);
+    let newSelectedIngredientPerCategory = Object.assign(
+      {},
+      selectedIngredientPerCategory
+    );
     if (e.target.checked) {
       handleSelect(e.target.value);
-      newSelectedIngredientPerCategory[`${selectedCategory}`] += 1
+      newSelectedIngredientPerCategory[`${selectedCategory}`] += 1;
     } else {
       handleDeselect(e.target.value);
-      newSelectedIngredientPerCategory[`${selectedCategory}`] -= 1
+      newSelectedIngredientPerCategory[`${selectedCategory}`] -= 1;
     }
     setSelectedIngredientPerCategory(newSelectedIngredientPerCategory);
   };
@@ -55,6 +59,12 @@ const IngredientPage = () => {
   const handleSearch = () => {
     // to be updated, we want to redirect to result page
     // getRecipeByIngredientsService(selectedIngredients, 5).then((r) => console.log(r));
+    history.push({
+      pathname: '/recipe',
+      state: {
+        selectedIngredients,
+      },
+    });
   };
 
   const ingredientsCount =
@@ -68,7 +78,10 @@ const IngredientPage = () => {
         type='primary'
         size='large'
         icon={<RedoOutlined />}
-        onClick={() => setSelectedIngredients([])}>
+        onClick={() => {
+          setSelectedIngredients([]);
+          setSelectedIngredientPerCategory(initialSelectedIngredients);
+        }}>
         Reset
       </Button>
       <Button
