@@ -12,8 +12,7 @@ import {
 } from '@material-ui/core';
 import '../styles/RecipePage.less';
 
-// TODO - get recipe data using API
-import { getRecipeByBasicSearchService } from '../service/recipe/index';
+import { getRecipeByIngredientsService, getRecipeByBasicSearchService } from '../service/recipe/index';
 import recipeData from '../data/dummyRecipes.json';
 
 // Higher values -> less calls that can be made
@@ -54,18 +53,35 @@ const RecipePage = () => {
   const [recipes, setRecipes] = useState(recipeData.results);
   const [displayedRecipes, setDisplayedRecipes] = useState(pageArray(recipes, 1, PAGE_SIZE));
   const [rows, setRows] = useState(recipeGrid(displayedRecipes));
+
   const [searchTerms, setSearchTerms] = useState([]);
   const history = useHistory();
   const { location } = history;
 
+  const updateRecipesToDisplays = (recipeArr, pageNumber = 1, pageSize = PAGE_SIZE) => {
+    const nextRecipeArr = pageArray(recipeArr, pageNumber, pageSize);
+    setDisplayedRecipes(nextRecipeArr);
+    setRows(recipeGrid(nextRecipeArr));
+  };
+
   useEffect(() => {
-    if (location.state !== null) {
-      setSearchTerms(location.state);
+    if (location.state !== null && location.state.selectedIngredients) {
+      setSearchTerms(location.state.selectedIngredients);
       history.replace({
         state: null
       });
     }
   }, [history, location]);
+
+  useEffect(() => {
+    console.log('searchTerms effect', searchTerms)
+    if (searchTerms.length > 0) {
+      getRecipeByIngredientsService(searchTerms, MAX_RESULTS).then(response => {
+        setRecipes(response);
+        updateRecipesToDisplays(response);
+      });
+    }
+  }, [searchTerms]);
 
 
   const search = (e) => {
@@ -75,9 +91,7 @@ const RecipePage = () => {
     // Calls the spoonacular API for a basic natural language search
     getRecipeByBasicSearchService(searchTerm, MAX_RESULTS).then(response => {
       setRecipes(response.results)
-      const nextRecipeArr = pageArray(response.results, 1, PAGE_SIZE);
-      setDisplayedRecipes(nextRecipeArr);
-      setRows(recipeGrid(nextRecipeArr));
+      updateRecipesToDisplays(response.results);
     });
 
     /* const nextRecipeArr = pageArray(recipes, 1, PAGE_SIZE);
@@ -108,9 +122,7 @@ const RecipePage = () => {
             pageSize={PAGE_SIZE}
             onChange={
               (page, pageSize) => {
-                const nextRecipeArr = pageArray(recipes, page, pageSize);
-                setDisplayedRecipes(nextRecipeArr);
-                setRows(recipeGrid(nextRecipeArr));
+                updateRecipesToDisplays(recipes, page, pageSize)
               }
             }
           />
