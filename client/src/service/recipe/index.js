@@ -3,9 +3,7 @@ import { handleError, pullOutJson } from '../handlers'
 
 export const getRecipeByIngredientsService = (ingredientsList, recipeCount) => {
     const headers = new Headers({
-        'content-type': 'application/json',
-        // 'x-rapidapi-host': getApiUrl(),
-        // 'x-rapidapi-key': getApiKey()
+        'content-type': 'application/json'
     });
 
     const ingredients = ingredientsList.map(ingredients => ingredients.replace(/\s/g, '+')).join(',+');
@@ -25,9 +23,7 @@ export const getRecipeByIngredientsService = (ingredientsList, recipeCount) => {
 // https://spoonacular.com/food-api/docs#Search-Recipes-Complex
 export const getRecipeByBasicSearchService = (searchTerm, recipeCount) => {
     const headers = new Headers({
-        'content-type': 'application/json',
-        // 'x-rapidapi-host': getApiUrl(),
-        // 'x-rapidapi-key': getApiKey()
+        'content-type': 'application/json'
     });
 
     const params = `query=${searchTerm.replace(/\s/g, '+')}&number=${recipeCount}`

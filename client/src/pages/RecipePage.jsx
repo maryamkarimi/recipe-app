@@ -94,9 +94,6 @@ const RecipePage = () => {
       updateRecipesToDisplays(response.results);
     });
 
-    /* const nextRecipeArr = pageArray(recipes, 1, PAGE_SIZE);
-    setDisplayedRecipes(nextRecipeArr);
-    setRows(recipeGrid(nextRecipeArr)); */
   };
 
   return (
