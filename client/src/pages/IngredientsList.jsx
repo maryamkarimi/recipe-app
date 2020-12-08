@@ -6,17 +6,18 @@ import DownIcon from '@material-ui/icons/ArrowDownward';
 import IngredientCheck from './IngredientCheck';
 
 const IngredientsList = ({ ingredients, servingSize }) => {
-  const [servingMultiplier, addServe] = useState(0);
+  const origServingSize = servingSize;
+  const [scaledServings, addServe] = useState(servingSize);
 
   // var servingMultiplier = React.useState(servingMultiplier, setServingMultiplier)
 
   const addServing = () => {
-    addServe(servingMultiplier + 1);
+    addServe(scaledServings + 1);
   };
 
   const removeServing = () => {
-    if (servingMultiplier >= 0) {
-      addServe(servingMultiplier - 1);
+    if (scaledServings > 0) {
+      addServe(scaledServings - 1);
     }
   };
 
@@ -29,15 +30,15 @@ const IngredientsList = ({ ingredients, servingSize }) => {
 
         <Row>
           <h3>Serving Size:</h3>
-          <DownIcon color={servingSize + servingMultiplier<=1 ? "primary" : "secondary"} fontSize="medium" onClick={removeServing}/>
-          <h3>{servingSize + servingMultiplier}</h3>
+          <DownIcon color={scaledServings <= 1 ? "primary" : "secondary"} fontSize="medium" onClick={removeServing}/>
+          <h3>{scaledServings}</h3>
           <UpIcon color="secondary" fontSize="medium" onClick={addServing} />
 
         </Row>
       </div>
       {ingredients.map((ingredient, ix) => (
         <Row key={ix}>
-          <IngredientCheck ingredient={`${ingredient.measures.us.amount * (servingSize + servingMultiplier)} ${ingredient.measures.us.unitShort} ${ingredient.name}`} />
+          <IngredientCheck ingredient={`${ingredient.measures.us.amount * (scaledServings / origServingSize)} ${ingredient.measures.us.unitShort} ${ingredient.name}`} />
         </Row>
 
       ))}
