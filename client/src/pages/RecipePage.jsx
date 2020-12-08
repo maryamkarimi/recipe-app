@@ -1,25 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Col, Row, Input, Pagination, Popover, Layout } from 'antd';
-import {
-  Grid,
-  Card,
-  CardContent,
-  Typography,
-  CardHeader,
-  CardMedia,
-  Container,
-  IconButton,
-} from '@material-ui/core';
+import { Container, IconButton } from '@material-ui/core';
 import FilterListIcon from '@material-ui/icons/FilterList';
-import '../styles/RecipePage.less';
 
+import '../styles/RecipePage.less';
 import {
   getRecipeByIngredientsService,
   getRecipeByBasicSearchService,
 } from '../service/recipe/index';
 import recipeData from '../data/dummyRecipes.json';
 import RecipeFilter from '../components/RecipeFilter';
+import RecipeGrid from '../components/RecipeGrid';
 
 const { Header, Content } = Layout;
 
@@ -31,31 +23,9 @@ const pageArray = (arr, pageNum, size) => {
   return arr.slice((pageNum - 1) * size, pageNum * size);
 };
 
-const recipeGrid = (recipeArr) => (
-  <Grid
-    container
-    spacing={2}
-    direction={'row'}
-    justify={'flex-start'}
-    alignItems={'flex-start'}>
-    {recipeArr.map((recipe, index) => (
-      <Grid item xs={12} md={6} key={index}>
-        <Card>
-          <CardMedia
-            image={recipe.image}
-            className={'recipe-card-img'}
-            title={recipe.title}
-          />
-          <CardContent>
-            <Typography variant={'h5'} component={'h2'}>
-              {recipe.title}
-            </Typography>
-          </CardContent>
-        </Card>
-      </Grid>
-    ))}
-  </Grid>
-);
+const recipeGrid = (recipeArr) => {
+  return <RecipeGrid recipeArr={recipeArr} />;
+};
 
 const RecipePage = () => {
   const [recipes, setRecipes] = useState(recipeData.results);
@@ -90,6 +60,10 @@ const RecipePage = () => {
     }
   }, [searchTerms]);
 
+  useEffect(() => {
+    setFilteredRecipes(recipes);
+  }, [recipes]);
+
   const updateRecipesToDisplays = (
     recipeArr,
     pageNumber = 1,
@@ -115,6 +89,8 @@ const RecipePage = () => {
     setExpandFilter(!filter);
   };
 
+  console.log('Recipes:', recipes);
+
   return (
     <Layout className='search-by-recipe'>
       <Header className='header'>
@@ -131,7 +107,10 @@ const RecipePage = () => {
         <Row align='middle' gutter={[32, 24]} justify='center'>
           <Col span={13} className='search-bar-wrapper'>
             {/* TODO - Wire search functionality to API */}
-            <Popover content={() => <div>Click to {!expandFilter ? 'expand' : 'close '} filter</div>}>
+            <Popover
+              content={() => (
+                <div>Click to {!expandFilter ? 'expand' : 'close '} filter</div>
+              )}>
               <IconButton
                 aria-label='delete'
                 className='filter-button'
