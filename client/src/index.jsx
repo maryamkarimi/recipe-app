@@ -16,7 +16,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
-        <Route path='/recipeId'>
+        <Route path='/recipe/:recipeId'>
           <RecipeDetailPage />
         </Route>
         <Route path='/recipe'>
