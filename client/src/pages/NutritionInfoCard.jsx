@@ -188,7 +188,7 @@ const data = {
             "percentOfDailyNeeds": 1.53,
             "title": "Vitamin A"
         }
-    ]    
+    ]
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -208,12 +208,12 @@ const useStyles = makeStyles((theme) => ({
 
 const NutritionInfoCard = (props) => {
     const classes = useStyles();
-  return ( <div> 
+  return ( <div>
 
     <Card className={classes.root} variant="outlined">
       <CardContent>
       <Typography variant="h4" component="h2">
-            Nutrition Facts   
+            Nutrition Facts
         </Typography>
         <Typography variant="h6" component="h2">
             Per 1 Serving
@@ -228,7 +228,7 @@ const NutritionInfoCard = (props) => {
           <b>Total Fat</b> {data.fat}
           <br />
         <Divider />
-        <p class="indent">Saturated Fat: {data.bad[2].amount}
+        Saturated Fat: {data.bad[2].amount}
         <Divider />
         <b>Cholesterol: </b> {data.bad[5].amount}
         <Divider />
@@ -236,11 +236,9 @@ const NutritionInfoCard = (props) => {
         <Divider />
         <b>Total Carbohydrates</b> {data.carbs}
         <Divider />
-        <p class="indent">Sugar: {data.bad[1].amount}
+        Sugar: {data.bad[1].amount}
         <Divider />
         <b>Protein: </b> {data.protein}
-        </p>
-        </p>
         <Divider />
         <Divider />
         <Divider />
