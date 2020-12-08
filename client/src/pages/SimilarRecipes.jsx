@@ -47,13 +47,13 @@ const useStyles = makeStyles((theme) => ({
 
 const SimilarRecipes = (props) => {
     const classes = useStyles();
-  return ( <div> 
+  return ( <div>
      <Grid container spacing={1}>
-        <Grid item xs = {1}></Grid>
+        <Grid item xs = {1} />
         <Grid item xs = {2}><h1>Similar Dishes:</h1></Grid>
-      {data.map((recipe, i)=>(
-          
-          <Grid item xs={2}>
+      {data.map((recipe, ix)=>(
+
+          <Grid item xs={2} key={ix}>
                <Card className={classes.root}>
                 <CardActionArea>
                     <CardMedia
@@ -71,14 +71,14 @@ const SimilarRecipes = (props) => {
                     </CardContent>
                 </CardActionArea>
                </Card>
-              <br></br>
-              
+              <br />
+
           </Grid>
-          
+
       ))}
-    
+
       </Grid>
-     
+
   </div>);
 };
 

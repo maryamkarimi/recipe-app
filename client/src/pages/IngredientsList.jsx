@@ -35,8 +35,8 @@ const IngredientsList = ({ ingredients, servingSize }) => {
 
         </Row>
       </div>
-      {ingredients.map((ingredient) => (
-        <Row>
+      {ingredients.map((ingredient, ix) => (
+        <Row key={ix}>
           <IngredientCheck ingredient={`${ingredient.measures.us.amount * (servingSize + servingMultiplier)} ${ingredient.measures.us.unitShort} ${ingredient.name}`} />
         </Row>
 
