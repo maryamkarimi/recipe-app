@@ -30,9 +30,9 @@ const IngredientsList = ({ ingredients, servingSize }) => {
 
         <Row>
           <h3>Serving Size:</h3>
-          <DownIcon color={scaledServings <= 1 ? "primary" : "secondary"} fontSize="medium" onClick={removeServing}/>
+          <DownIcon color={scaledServings <= 1 ? "primary" : "secondary"} fontSize="default" onClick={removeServing}/>
           <h3>{scaledServings}</h3>
-          <UpIcon color="secondary" fontSize="medium" onClick={addServing} />
+          <UpIcon color="secondary" fontSize="default" onClick={addServing} />
 
         </Row>
       </div>

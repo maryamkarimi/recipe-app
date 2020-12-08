@@ -46,3 +46,58 @@ export const getRecipeDetailByRecipeId = (id) => {
     .then(handleError)
     .then(pullOutJson);
 };
+
+export const getNutritionDetailByRecipeId = (id) => {
+  return fetch(
+    encodeURI(
+      `https://api.spoonacular.com/recipes/${id}/nutritionWidget.json?apiKey=${getApiKey()}`
+    ),
+    { method: 'GET', headers }
+  )
+    .then(handleError)
+    .then(pullOutJson);
+};
+
+export const getImageByRecipeId = (id) => {
+  return fetch(
+    encodeURI(
+      `https://api.spoonacular.com/recipes/${id}/information?apiKey=${getApiKey()}`
+    ),
+    { method: 'GET', headers }
+  )
+    .then(handleError)
+    .then(pullOutJson)
+    .then((res) => {
+      return res.image;
+    });
+};
+
+export const getSimilarDishesByRecipeId = (id) => {
+  return fetch(
+    encodeURI(
+      `https://api.spoonacular.com/recipes/${id}/similar?apiKey=${getApiKey()}&number=5`
+    ),
+    { method: 'GET', headers }
+  )
+    .then(handleError)
+    .then(pullOutJson)
+    .then((recipes) => {
+      return Promise.all(
+        recipes.map(async (recipe) => {
+          const imageRes = await getImageByRecipeId(recipe.id);
+          return { ...recipe, image: imageRes };
+        })
+      );
+    });
+};
+
+export const getInstructionByRecipeId = (id) => {
+  return fetch(
+    encodeURI(
+      `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${getApiKey()}`
+    ),
+    { method: 'GET', headers }
+  )
+    .then(handleError)
+    .then(pullOutJson);
+};

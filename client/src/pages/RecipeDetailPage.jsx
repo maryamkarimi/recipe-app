@@ -83,21 +83,21 @@ const RecipeDetailPage = () => {
                   <b>{recipe?.weightWatcherSmartPoints}</b>
                   Vegetarian:{' '}
                   {recipe?.vegetarian ? (
-                    <CheckIcon color='secondary' fontSize='medium' />
+                    <CheckIcon color='secondary' fontSize='default' />
                   ) : (
-                    <CloseIcon color='primary' fontSize='medium' />
+                    <CloseIcon color='primary' fontSize='default' />
                   )}
                   Gluten Free:{' '}
                   {recipe?.glutenFree ? (
-                    <CheckIcon color='secondary' fontSize='medium' />
+                    <CheckIcon color='secondary' fontSize='default' />
                   ) : (
-                    <CloseIcon color='primary' fontSize='medium' />
+                    <CloseIcon color='primary' fontSize='default' />
                   )}
                   Ketogenic:{' '}
                   {recipe?.ketogenic ? (
-                    <CheckIcon color='secondary' fontSize='medium' />
+                    <CheckIcon color='secondary' fontSize='default' />
                   ) : (
-                    <CloseIcon color='primary' fontSize='medium' />
+                    <CloseIcon color='primary' fontSize='default' />
                   )}
                 </Typography>
               </Paper>
@@ -113,7 +113,7 @@ const RecipeDetailPage = () => {
                   <li key={i}>{wine}</li>
                 ))}
                 {recipe?.winePairing.productMatches?.map((wine, i) => (
-                  <a href={wine.link}>
+                  <a href={wine.link} key={i}>
                     <img src={wine.imageUrl} />
                   </a>
                 ))}
@@ -133,7 +133,7 @@ const RecipeDetailPage = () => {
             </Grid>
 
             <Grid item xs={2}>
-              <NutritionInfoCard id={recipe?.id} />
+              <NutritionInfoCard id={recipeId} />
             </Grid>
           </Grid>
           <Grid container spacing={1}>
@@ -148,12 +148,12 @@ const RecipeDetailPage = () => {
             </Grid>
             <Grid item xs={5}>
               <Paper className={classes.paper}>
-                <InstructionsList id={recipe?.id} />
+                <InstructionsList id={recipeId} />
               </Paper>
             </Grid>
           </Grid>
 
-          <SimilarRecipes id={recipe?.id} />
+          <SimilarRecipes id={recipeId} />
         </div>
       </>
     )
