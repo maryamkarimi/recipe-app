@@ -89,8 +89,6 @@ const RecipePage = () => {
     setExpandFilter(!filter);
   };
 
-  console.log('Recipes:', recipes);
-
   return (
     <Layout className='search-by-recipe'>
       <Header className='header'>
