@@ -16,7 +16,7 @@ const IngredientsList = ({ ingredients, servingSize }) => {
   };
 
   const removeServing = () => {
-    if (scaledServings > 0) {
+    if (scaledServings > 1) {
       addServe(scaledServings - 1);
     }
   };

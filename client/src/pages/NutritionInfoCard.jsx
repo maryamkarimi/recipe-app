@@ -15,9 +15,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     maxWidth: 345,
+    minHeight: 360,
   },
   media: {
-    height: 360,
+    height: 500,
+    minHeight: 360,
+    maxHeight: 360,
   },
   paper: {
     padding: theme.spacing(2),
@@ -38,61 +41,59 @@ const NutritionInfoCard = ({id}) => {
     }
   }, [nutrition]);
 
-  return (
-    nutrition && (
-      <div>
-        <Card className={classes.root} variant='outlined'>
-          <CardContent>
-            <Typography variant='h4' component='h2'>
-              Nutrition Facts
-            </Typography>
-            <Typography variant='h6' component='h2'>
-              Per 1 Serving
-            </Typography>
-            <Divider />
-            <Typography variant='h5' component='h2'>
-              Calories: {nutrition?.calories}
-            </Typography>
-            <Divider />
+  return ( <div> 
 
-            <Typography variant='body2' component='p'>
-              <b>Total Fat</b> {nutrition?.fat}
-              <br />
-              <Divider />
-              Saturated Fat: {nutrition?.bad[2].amount}
-              <Divider />
-              <b>Cholesterol: </b> {nutrition?.bad[5].amount}
-              <Divider />
-              <b>Sodium: </b>
-              {nutrition?.bad[6].amount}
-              <Divider />
-              <b>Total Carbohydrates</b> {nutrition?.carbs}
-              <Divider />
-              Sugar: {nutrition?.bad[1].amount}
-              <Divider />
-              <b>Protein: </b> {nutrition?.protein}
-              <Divider />
-              <Divider />
-              <Divider />
+    <Card className={classes.root} variant="outlined">
+      <CardContent>
+      <Typography variant="h4" component="h2">
+            Nutrition Facts   
+        </Typography>
+        <Typography variant="h6" component="h2">
+            Per 1 Serving
+        </Typography>
+        <Divider />
+        <Typography variant="h5" component="h2">
+          Calories: {nutrition?.calories}
+        </Typography>
+        <Divider />
+
+        <Typography variant="body2" component="p">
+          <b>Total Fat</b> {nutrition?.fat}
+          <br />
+        <Divider />
+        <p class="indent">Saturated Fat: {nutrition?.bad[2].amount}
+        <Divider />
+        <b>Cholesterol: </b> {nutrition?.bad[5].amount}
+        <Divider />
+        <b>Sodium: </b>{nutrition?.bad[6].amount}
+        <Divider />
+        <b>Total Carbohydrates</b> {nutrition?.carbs}
+        <Divider />
+        <p class="indent">Sugar: {nutrition?.bad[1].amount}
+        <Divider />
+        <b>Protein: </b> {nutrition?.protein}
+        </p>
+        </p>
+        <Divider />
+        <Divider />
+        <Divider />
+        </Typography>
+        <Typography variant="body2" component="p">
+            {nutrition?.good[1].title}: <b>{nutrition?.good[1].percentOfDailyNeeds}%</b>
+            <Divider />
+            {nutrition?.good[2].title}: <b>{nutrition?.good[2].percentOfDailyNeeds}%</b>
+            <Divider />
+            {nutrition?.good[3].title}: <b>{nutrition?.good[3].percentOfDailyNeeds}%</b>
+            <Divider />
+            {nutrition?.good[4].title}: <b>{nutrition?.good[4].percentOfDailyNeeds}%</b>
+            <Divider />
             </Typography>
-            <Typography variant='body2' component='p'>
-              {nutrition?.good?.map((fact, index) => {
-                return (
-                  <div key={index}>
-                    {fact.title}: <b>{fact.percentOfDailyNeeds}</b>
-                    <Divider />
-                  </div>
-                );
-              })}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size='small'>Learn More</Button>
-          </CardActions>
-        </Card>
-      </div>
-    )
-  );
+      </CardContent>
+      <CardActions>
+      </CardActions>
+    </Card>
+
+  </div>);
 };
 
 export default NutritionInfoCard;

@@ -6,6 +6,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import Slide from '@material-ui/core/Slide';
 
 import { getSimilarDishesByRecipeId } from '../service/recipe/index';
 
@@ -13,6 +14,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     maxWidth: 345,
+    maxHeight: 345,
+    minHeight: 345,
   },
   media: {
     height: 140,
