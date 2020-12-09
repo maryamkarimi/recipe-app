@@ -1,29 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { Row } from 'antd';
-
+import IngredientCheck from "./IngredientCheck"
 import { getInstructionByRecipeId } from '../service/recipe/index';
 
 const InstructionsList = ({ id }) => {
-  const [instuctions, setInstuctions] = useState(null);
+  const [instructions, setInstuctions] = useState(null);
 
   useEffect(() => {
-    if (!instuctions) {
+    if (!instructions) {
       getInstructionByRecipeId(id).then((response) => setInstuctions(response));
     }
-  }, [instuctions]);
+  }, [instructions]);
 
-  return instuctions && (
+  return instructions && (
     <div>
       <Row>
-        <h1>Instuctions</h1>
+        <h1>Instructions</h1>
       </Row>
-      <ol>
-        {instuctions[0].steps.map((step, i) => (
-          <li key={i} style={{ textAlign: 'left' }}>
-            {step.step}
-          </li>
+    
+        {instructions[0].steps.map((step, i) => (
+            <Row key={i}>
+           <IngredientCheck ingredient={`${step.step}`} />
+           </Row>
         ))}
-      </ol>
+      
     </div>
   );
 };

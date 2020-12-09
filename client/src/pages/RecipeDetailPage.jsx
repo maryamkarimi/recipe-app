@@ -24,10 +24,29 @@ const useStyles = makeStyles((theme) => ({
   },
   mainContainer: {
     paddingTop: '80px',
+    minHeight: 500,
   },
   paper: {
     padding: theme.spacing(1),
     textAlign: 'center',
+    color: theme.palette.text.primary,
+  },
+  mainInfo: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    height:"100%",
+    color: theme.palette.text.primary,
+  },
+  nutInfo: {
+    padding: theme.spacing(1),
+    textAlign: 'left',
+    height:"100%",
+    color: theme.palette.text.primary,
+  },
+  detailInfo: {
+    padding: theme.spacing(1),
+    textAlign: 'left',
+    height:"100%",
     color: theme.palette.text.primary,
   },
   recipeImage: {
@@ -107,7 +126,7 @@ const RecipeDetailPage = () => {
           <Grid container spacing={3}>
             <Grid item xs={1} />
             <Grid item xs={2}>
-              <Paper className={classes.paper}>
+              <Paper className={classes.mainInfo}>
                 <h3>This dish goes well with:</h3>
                 {recipe?.winePairing.pairedWines?.map((wine, i) => (
                   <li key={i}>{wine}</li>
@@ -120,7 +139,7 @@ const RecipeDetailPage = () => {
               </Paper>
             </Grid>
             <Grid item xs={6}>
-              <Paper className={classes.paper}>
+              <Paper className={classes.mainInfo}>
                 <a href={recipe?.sourceUrl}>
                   <img
                     className={classes.recipeImage}
@@ -133,13 +152,15 @@ const RecipeDetailPage = () => {
             </Grid>
 
             <Grid item xs={2}>
+            <Paper className={classes.nutInfo}>
               <NutritionInfoCard id={recipeId} />
+              </Paper>
             </Grid>
           </Grid>
           <Grid container spacing={1}>
             <Grid item xs={1} />
             <Grid item xs={5}>
-              <Paper className={classes.paper}>
+              <Paper className={classes.detailInfo}>
                 <IngredientsList
                   ingredients={recipe?.extendedIngredients}
                   servingSize={recipe?.servings}
@@ -147,7 +168,7 @@ const RecipeDetailPage = () => {
               </Paper>
             </Grid>
             <Grid item xs={5}>
-              <Paper className={classes.paper}>
+              <Paper className={classes.detailInfo}>
                 <InstructionsList id={recipeId} />
               </Paper>
             </Grid>
