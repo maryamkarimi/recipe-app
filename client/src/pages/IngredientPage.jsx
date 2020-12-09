@@ -12,6 +12,19 @@ const allCategories = categories.map((category) => {
   return category.category_name;
 });
 
+let ingredientToCategory = {};
+
+categories.forEach((category) => {
+  const ingredients = category.ingredients.map((ingredient) => ingredient.name);
+  ingredientToCategory[category.category_name] = ingredients;
+});
+
+const findCategoryByIngredient = (ingredient) => {
+  return Object.keys(ingredientToCategory).find((key) =>
+    ingredientToCategory[key].includes(ingredient)
+  );
+};
+
 const initialSelectedIngredients = allCategories.reduce((obj, val) => {
   obj[val] = 0;
   return obj;
@@ -28,7 +41,20 @@ const IngredientPage = () => {
 
   const history = useHistory();
 
+  const updateSelectIngredientPerCategory = (category, isSelected) => {
+    let updatedSelectedIngredientPerCategory = Object.assign(
+      {},
+      selectedIngredientPerCategory
+    );
+    if (isSelected) updatedSelectedIngredientPerCategory[`${category}`] += 1;
+    else updatedSelectedIngredientPerCategory[`${category}`] -= 1;
+
+    setSelectedIngredientPerCategory(updatedSelectedIngredientPerCategory);
+  };
+
   const handleSelect = (newIngredient) => {
+    const category = findCategoryByIngredient(newIngredient);
+    updateSelectIngredientPerCategory(category, true);
     setSelectedIngredients((prevIngredients) => [
       ...prevIngredients,
       newIngredient,
@@ -36,24 +62,21 @@ const IngredientPage = () => {
   };
 
   const handleDeselect = (removedIngredient) => {
+    const category = findCategoryByIngredient(removedIngredient);
+    updateSelectIngredientPerCategory(category, false);
     setSelectedIngredients((prevIngredients) =>
       prevIngredients.filter((ingredient) => ingredient !== removedIngredient)
     );
   };
 
   const handleCheckboxChange = (selectedCategory, e) => {
-    let newSelectedIngredientPerCategory = Object.assign(
-      {},
-      selectedIngredientPerCategory
-    );
     if (e.target.checked) {
       handleSelect(e.target.value);
-      newSelectedIngredientPerCategory[`${selectedCategory}`] += 1;
+      updateSelectIngredientPerCategory(selectedCategory, true);
     } else {
       handleDeselect(e.target.value);
-      newSelectedIngredientPerCategory[`${selectedCategory}`] -= 1;
+      updateSelectIngredientPerCategory(selectedCategory, false);
     }
-    setSelectedIngredientPerCategory(newSelectedIngredientPerCategory);
   };
 
   const handleSearch = () => {
